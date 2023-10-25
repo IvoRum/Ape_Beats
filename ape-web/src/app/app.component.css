@@ -1,0 +1,10 @@
+.banner {
+  background-image: url("C:\Users\ivail\_Spring\Ape_Beats\ape-web\src\assets\mainbanner.jpg");
+  background-color: #0000003b;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
