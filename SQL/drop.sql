@@ -1,0 +1,14 @@
+DROP TABLE "Client";
+DROP TABLE "Worker";
+DROP TABLE "Sale_item";
+DROP TABLE "Sale";
+DROP TABLE "User";
+DROP TABLE "Instrument_istrument_type";
+DROP TABLE "Record";
+DROP TABLE "Artist";
+DROP TABLE "Record_label";
+DROP TABLE "Instrument _type";
+Drop TABLE "Instrument";
+DROP TABLE "Item";
+DROP TABLE "Genre";
+DROP TABLE "Company";
