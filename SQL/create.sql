@@ -1,113 +1,113 @@
 CREATE TABLE "User"(
-    "id" BIGINT NOT NULL,
-    "email" VARCHAR(255) NOT NULL,
-    "phone" VARCHAR(255) NOT NULL,
-    "password" VARCHAR(255) NOT NULL,
-    "first_name" VARCHAR(255) NOT NULL,
-    "family_name" VARCHAR(255) NOT NULL
+                       "id" BIGINT NOT NULL,
+                       "email" VARCHAR(255) NOT NULL,
+                       "phone" VARCHAR(255) NOT NULL,
+                       "password" VARCHAR(255) NOT NULL,
+                       "first_name" VARCHAR(255) NOT NULL,
+                       "family_name" VARCHAR(255) NOT NULL
 );
 ALTER TABLE
     "User" ADD PRIMARY KEY("id");
 CREATE TABLE "Instrument"(
-    "Instrument_id" BIGINT NOT NULL,
-    "item_id" BIGINT NOT NULL,
-    "type" BIGINT NOT NULL,
-    "time_stamp" DATE NOT NULL
+                             "Instrument_id" BIGINT NOT NULL,
+                             "item_id" BIGINT NOT NULL,
+                             "type" BIGINT NOT NULL,
+                             "time_stamp" DATE NOT NULL
 );
 ALTER TABLE
     "Instrument" ADD PRIMARY KEY("Instrument_id");
 CREATE TABLE "Item"(
-    "item_id" BIGINT NOT NULL,
-    "stock" BOOLEAN NOT NULL,
-    "price" BIGINT NOT NULL,
-    "discrimination" VARCHAR(255) NULL,
-    "manufacturing_date" DATE NOT NULL,
-    "name" VARCHAR(255) NOT NULL,
-    "description" VARCHAR(255) NOT NULL,
-    "genre" BIGINT NOT NULL,
-    "company" BIGINT NOT NULL,
-    "time_stamp" DATE NOT NULL
+                       "item_id" BIGINT NOT NULL,
+                       "stock" BOOLEAN NOT NULL,
+                       "price" BIGINT NOT NULL,
+                       "discrimination" VARCHAR(255) NULL,
+                       "manufacturing_date" DATE NOT NULL,
+                       "name" VARCHAR(255) NOT NULL,
+                       "description" VARCHAR(255) NOT NULL,
+                       "genre" BIGINT NOT NULL,
+                       "company" BIGINT NOT NULL,
+                       "time_stamp" DATE NOT NULL
 );
 ALTER TABLE
     "Item" ADD PRIMARY KEY("item_id");
 CREATE TABLE "Sale_item"(
-    "sale" BIGINT NOT NULL,
-    "item" BIGINT NOT NULL
+                            "sale" BIGINT NOT NULL,
+                            "item" BIGINT NOT NULL
 );
 CREATE TABLE "Instrument_istrument_type"(
-    "instrument_id" BIGINT NOT NULL,
-    "instrument_type_id" BIGINT NOT NULL
+                                            "instrument_id" BIGINT NOT NULL,
+                                            "instrument_type_id" BIGINT NOT NULL
 );
 CREATE TABLE "Sale"(
-    "Number" BIGINT NOT NULL,
-    "user" BIGINT NOT NULL,
-    "amount" BIGINT NOT NULL,
-    "fulfill" BOOLEAN NOT NULL,
-    "time_stamp" DATE NOT NULL
+                       "Number" BIGINT NOT NULL,
+                       "user" BIGINT NOT NULL,
+                       "amount" BIGINT NOT NULL,
+                       "fulfill" BOOLEAN NOT NULL,
+                       "time_stamp" DATE NOT NULL
 );
 ALTER TABLE
     "Sale" ADD PRIMARY KEY("Number");
 CREATE TABLE "Genre"(
-    "id" BIGINT NOT NULL,
-    "name" VARCHAR(255) NOT NULL,
-    "discretion" BIGINT NOT NULL,
-    "time_stamp" DATE NOT NULL
+                        "id" BIGINT NOT NULL,
+                        "name" VARCHAR(255) NOT NULL,
+                        "discretion" VARCHAR(255) NOT NULL,
+                        "time_stamp" DATE NOT NULL
 );
 ALTER TABLE
     "Genre" ADD PRIMARY KEY("id");
 CREATE TABLE "Company"(
-    "id" BIGINT NOT NULL,
-    "name" BIGINT NOT NULL,
-    "time_stamp" DATE NOT NULL
+                          "id" BIGINT NOT NULL,
+                          "name" VARCHAR(255) NOT NULL,
+                          "time_stamp" DATE NOT NULL
 );
 ALTER TABLE
     "Company" ADD PRIMARY KEY("id");
 CREATE TABLE "Artist"(
-    "id" BIGINT NOT NULL,
-    "Name" VARCHAR(255) NOT NULL,
-    "record_label" BIGINT NOT NULL,
-    "time_stamp" BIGINT NOT NULL
+                         "id" BIGINT NOT NULL,
+                         "Name" VARCHAR(255) NOT NULL,
+                         "record_label" BIGINT NOT NULL,
+                         "time_stamp" DATE NOT NULL
 );
 ALTER TABLE
     "Artist" ADD PRIMARY KEY("id");
 CREATE TABLE "Record"(
-    "Record_id" BIGINT NOT NULL,
-    "item_id" BIGINT NOT NULL,
-    "name" VARCHAR(255) NOT NULL,
-    "artist" BIGINT NOT NULL,
-    "record_label" BIGINT NOT NULL,
-    "time_stamp" DATE NOT NULL
+                         "Record_id" BIGINT NOT NULL,
+                         "item_id" BIGINT NOT NULL,
+                         "name" VARCHAR(255) NOT NULL,
+                         "artist" BIGINT NOT NULL,
+                         "record_label" BIGINT NOT NULL,
+                         "time_stamp" DATE NOT NULL
 );
 ALTER TABLE
     "Record" ADD PRIMARY KEY("Record_id");
 CREATE TABLE "Record_label"(
-    "id" BIGINT NOT NULL,
-    "Name" VARCHAR(255) NOT NULL,
-    "description" VARCHAR(255) NOT NULL,
-    "time_stamp" DATE NOT NULL
+                               "id" BIGINT NOT NULL,
+                               "Name" VARCHAR(255) NOT NULL,
+                               "description" VARCHAR(255) NOT NULL,
+                               "time_stamp" DATE NOT NULL
 );
 ALTER TABLE
     "Record_label" ADD PRIMARY KEY("id");
 CREATE TABLE "Worker"(
-    "worker_id" BIGINT NOT NULL,
-    "user_id" BIGINT NOT NULL,
-    "position" VARCHAR(255) NOT NULL,
-    "time_stamp" DATE NOT NULL
+                         "worker_id" BIGINT NOT NULL,
+                         "user_id" BIGINT NOT NULL,
+                         "position" VARCHAR(255) NOT NULL,
+                         "time_stamp" DATE NOT NULL
 );
 ALTER TABLE
     "Worker" ADD PRIMARY KEY("worker_id");
 CREATE TABLE "Client"(
-    "client_id" BIGINT NOT NULL,
-    "user_id" BIGINT NOT NULL,
-    "status" BIGINT NOT NULL,
-    "time_stamp" BIGINT NOT NULL
+                         "client_id" BIGINT NOT NULL,
+                         "user_id" BIGINT NOT NULL,
+                         "status" BIGINT NOT NULL,
+                         "time_stamp" BIGINT NOT NULL
 );
 ALTER TABLE
     "Client" ADD PRIMARY KEY("client_id");
 CREATE TABLE "Instrument _type"(
-    "id" BIGINT NOT NULL,
-    "name" VARCHAR(255) NOT NULL,
-    "time_stamp" DATE NOT NULL
+                                   "id" BIGINT NOT NULL,
+                                   "name" VARCHAR(255) NOT NULL,
+                                   "time_stamp" DATE NOT NULL
 );
 ALTER TABLE
     "Instrument _type" ADD PRIMARY KEY("id");
