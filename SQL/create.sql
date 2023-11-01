@@ -73,7 +73,6 @@ ALTER TABLE
 CREATE TABLE Record(
                          Record_id BIGINT NOT NULL,
                          item_id BIGINT NOT NULL,
-                         name VARCHAR(255) NOT NULL,
                          artist BIGINT NOT NULL,
                          record_label BIGINT NOT NULL,
                          time_stamp DATE NOT NULL

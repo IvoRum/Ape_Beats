@@ -97,13 +97,25 @@ values (3,TRUE,65,'Some diescriopton','2013-10-28','Yamaha_YAS','Some diescriopt
 */
 
 INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
-values (4,TRUE,32,'Some diescriopton','2013-10-28','Yamaha_YAS','Some diescriopton',2,3,'2023-10-28');
+values (4,TRUE,32,'Some diescriopton','2013-10-28','Guns_N_Rosses_GreatestHits','Some diescriopton',2,3,'2023-10-28');
 
 INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
-values (5,TRUE,43,'Some diescriopton','2013-10-28','Yamaha_YAS','Some diescriopton',2,3,'2023-10-28');
+values (5,TRUE,43,'Some diescriopton','2013-10-28','Nirvana_Nevermind','Some diescriopton',2,3,'2023-10-28');
 
 INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
-values (6,TRUE,15,'Some diescriopton','2013-10-28','Yamaha_YAS','Some diescriopton',2,3,'2023-10-28');
+values (6,TRUE,15,'Some diescriopton','2013-10-28','Queen_Greatest_Hits_1','Some diescriopton',2,3,'2023-10-28');
+
+INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
+values (7,TRUE,65,'Some diescriopton','2013-10-28','Yamaha_YAS','Some diescriopton',2,3,'2023-10-28');
+
+INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
+values (8,TRUE,45,'Some diescriopton','2013-10-28','Yamaha_YAS','Some diescriopton',2,3,'2023-10-28');
+
+INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
+values (9,TRUE,34,'Some diescriopton','2013-10-28','Yamaha_YAS','Some diescriopton',2,3,'2023-10-28');
+
+INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
+values (10,TRUE,47,'Some diescriopton','2013-10-28','Yamaha_YAS','Some diescriopton',2,3,'2023-10-28');
 
 /*
   Creating 3 Instruments
@@ -116,7 +128,19 @@ INSERT INTO Instrument(Instrument_id,item_id,type,time_stamp)
 VALUES (2,2,2,'2023-10-28');
 
 INSERT INTO Instrument(Instrument_id,item_id,type,time_stamp)
-VALUES (3,2,1,'2023-10-28');
+VALUES (3,3,1,'2023-10-28');
+
+INSERT INTO Instrument(Instrument_id,item_id,type,time_stamp)
+VALUES (4,7,1,'2023-10-28');
+
+INSERT INTO Instrument(Instrument_id,item_id,type,time_stamp)
+VALUES (5,8,2,'2023-10-28');
+
+INSERT INTO Instrument(Instrument_id,item_id,type,time_stamp)
+VALUES (6,9,1,'2023-10-28');
+
+INSERT INTO Instrument(Instrument_id,item_id,type,time_stamp)
+VALUES (7,10,1,'2023-10-28');
 
 /*
   Creating 3 Instruments
@@ -126,10 +150,22 @@ INSERT INTO Instrument_istrument_type(instrument_id,instrument_type_id)
 VALUES (1,1);
 
 INSERT INTO Instrument_istrument_type(instrument_id,instrument_type_id)
-VALUES (1,2);
+VALUES (2,1);
 
 INSERT INTO Instrument_istrument_type(instrument_id,instrument_type_id)
-VALUES (2,1);
+VALUES (3,3);
+
+INSERT INTO Instrument_istrument_type(instrument_id,instrument_type_id)
+VALUES (4,3);
+
+INSERT INTO Instrument_istrument_type(instrument_id,instrument_type_id)
+VALUES (5,3);
+
+INSERT INTO Instrument_istrument_type(instrument_id,instrument_type_id)
+VALUES (6,3);
+
+INSERT INTO Instrument_istrument_type(instrument_id,instrument_type_id)
+VALUES (7,3);
 
 /*
   Creating 3 Record label
@@ -161,14 +197,14 @@ VALUES (3,'Queen',1,'2023-10-28');
   Creating 3 Records
 */
 
-INSERT INTO Record(Record_id,item_id,name,artist,record_label,time_stamp)
-VALUES (1,4,'Guns_N_Rosses_GreatestHits',1,1,'2023-10-28');
+INSERT INTO Record(Record_id,item_id,artist,record_label,time_stamp)
+VALUES (1,4,1,1,'2023-10-28');
 
-INSERT INTO Record(Record_id,item_id,name,artist,record_label,time_stamp)
-VALUES (2,5,'Nirvana_Nevermind',2,1,'2023-10-28');
+INSERT INTO Record(Record_id,item_id,artist,record_label,time_stamp)
+VALUES (2,5,2,1,'2023-10-28');
 
-INSERT INTO Record(Record_id,item_id,name,artist,record_label,time_stamp)
-VALUES (3,6,'Queen_Greatest_Hits_1',3,3,'2023-10-28');
+INSERT INTO Record(Record_id,item_id,artist,record_label,time_stamp)
+VALUES (3,6,3,3,'2023-10-28');
 
 /*
   Creating 3 Sale
