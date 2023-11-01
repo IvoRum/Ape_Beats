@@ -58,16 +58,22 @@ INSERT INTO Client(client_id,ape_user,status,time_stamp)
 VALUES (2,5,2,1);
 
 INSERT INTO Client(client_id,ape_user,status,time_stamp)
-VALUES (3,,1,1);
+VALUES (3,6,1,1);
 
 INSERT INTO Client(client_id,ape_user,status,time_stamp)
-VALUES (4,5,2,1);
+VALUES (4,7,2,1);
 
 INSERT INTO Client(client_id,ape_user,status,time_stamp)
-VALUES (5,4,1,1);
+VALUES (5,8,1,1);
 
 INSERT INTO Client(client_id,ape_user,status,time_stamp)
-VALUES (6,5,2,1);
+VALUES (6,9,2,1);
+
+INSERT INTO Client(client_id,ape_user,status,time_stamp)
+VALUES (7,10,2,1);
+
+INSERT INTO Client(client_id,ape_user,status,time_stamp)
+VALUES (8,11,2,1);
 
 /*
   Creating 3 Instrument types
