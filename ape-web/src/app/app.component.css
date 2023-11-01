@@ -20,3 +20,10 @@
   margin: auto;
   color: white;
 }
+
+.buttons {
+  align-items: center;
+  text-justify: center;
+  width: 50%;
+  margin: auto;
+}
