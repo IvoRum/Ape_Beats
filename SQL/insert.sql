@@ -17,6 +17,23 @@ VALUES (4, 'hasan@mail.com', '08931265', 'hasendej', 'Hasan', 'Hassanov');
 INSERT INTO Ape_user(id, email, phone, password, first_name, family_name)
 VALUES (5, 'user@mail.com', '08999999', '1234', 'User1', 'User1');
 
+INSERT INTO Ape_user(id, email, phone, password, first_name, family_name)
+VALUES (6, 'muamed@mail.com', '0894234', 'muhadqnina123', 'Muhamed', 'Imal');
+
+INSERT INTO Ape_user(id, email, phone, password, first_name, family_name)
+VALUES (7, 'IvanZvazdev@gmail.com', '0347573648', '112323231', 'Ivan', 'Zvezdev');
+
+INSERT INTO Ape_user(id, email, phone, password, first_name, family_name)
+VALUES (8, 'KokoNikolov@mail.com', '08123123543', 'kdopasaoi', 'Koko', 'Nikolov');
+
+INSERT INTO Ape_user(id, email, phone, password, first_name, family_name)
+VALUES (9, 'CecaIvanova@hotmail.com', '0892342176', 'Mamboamericano', 'Ceca', 'Ivanova');
+
+INSERT INTO Ape_user(id, email, phone, password, first_name, family_name)
+VALUES (10, 'DamqnHristov@abv.bg', '089123789', 'Carqnakopona', 'Damqn', 'Hristov');
+
+INSERT INTO Ape_user(id, email, phone, password, first_name, family_name)
+VALUES (11, 'Marakew213@outloock.com', '08398345', 'Dubail123', 'Samoil', 'Kovachev');
 /*
   Creating 3 Workers
 */
@@ -39,6 +56,18 @@ VALUES (1,4,1,1);
 
 INSERT INTO Client(client_id,ape_user,status,time_stamp)
 VALUES (2,5,2,1);
+
+INSERT INTO Client(client_id,ape_user,status,time_stamp)
+VALUES (3,,1,1);
+
+INSERT INTO Client(client_id,ape_user,status,time_stamp)
+VALUES (4,5,2,1);
+
+INSERT INTO Client(client_id,ape_user,status,time_stamp)
+VALUES (5,4,1,1);
+
+INSERT INTO Client(client_id,ape_user,status,time_stamp)
+VALUES (6,5,2,1);
 
 /*
   Creating 3 Instrument types
@@ -207,7 +236,7 @@ INSERT INTO Record(Record_id,item_id,artist,record_label,time_stamp)
 VALUES (3,6,3,3,'2023-10-28');
 
 /*
-  Creating 3 Sale
+  Creating 10 Sale
 */
 
 INSERT INTO Sale(Number,ape_user,amount,fulfill,time_stamp)
@@ -217,8 +246,28 @@ INSERT INTO Sale(Number,ape_user,amount,fulfill,time_stamp)
 values (2,4,44,TRUE,'2023-10-28');
 
 INSERT INTO Sale(Number,ape_user,amount,fulfill,time_stamp)
-values (3,4,44,TRUE,'2023-10-28');
+values (3,4,123,TRUE,'2023-10-28');
 
+INSERT INTO Sale(Number,ape_user,amount,fulfill,time_stamp)
+values (4,4,432,TRUE,'2023-10-28');
+
+INSERT INTO Sale(Number,ape_user,amount,fulfill,time_stamp)
+values (5,4,425,TRUE,'2023-10-28');
+
+INSERT INTO Sale(Number,ape_user,amount,fulfill,time_stamp)
+values (6,4,52,TRUE,'2023-10-28');
+
+INSERT INTO Sale(Number,ape_user,amount,fulfill,time_stamp)
+values (7,4,36,TRUE,'2023-10-28');
+
+INSERT INTO Sale(Number,ape_user,amount,fulfill,time_stamp)
+values (8,4,16,TRUE,'2023-10-28');
+
+INSERT INTO Sale(Number,ape_user,amount,fulfill,time_stamp)
+values (9,4,134,TRUE,'2023-10-28');
+
+INSERT INTO Sale(Number,ape_user,amount,fulfill,time_stamp)
+values (10,4,543,TRUE,'2023-10-28');
 /*
   Creating 3 Sale_item
 */
@@ -231,3 +280,36 @@ values (1,2);
 
 INSERT INTO Sale_item(sale,item)
 values (1,3);
+
+INSERT INTO Sale_item(sale,item)
+values (2,1);
+
+INSERT INTO Sale_item(sale,item)
+values (2,3);
+
+INSERT INTO Sale_item(sale,item)
+values (4,2);
+
+INSERT INTO Sale_item(sale,item)
+values (5,6);
+
+INSERT INTO Sale_item(sale,item)
+values (6,7);
+
+INSERT INTO Sale_item(sale,item)
+values (7,7);
+
+INSERT INTO Sale_item(sale,item)
+values (8,8);
+
+INSERT INTO Sale_item(sale,item)
+values (9,9);
+
+INSERT INTO Sale_item(sale,item)
+values (10,10);
+
+INSERT INTO Sale_item(sale,item)
+values (10,1);
+
+INSERT INTO Sale_item(sale,item)
+values (10,1);
