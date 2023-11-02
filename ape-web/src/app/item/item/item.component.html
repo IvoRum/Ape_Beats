@@ -1,1 +1,57 @@
-<p>item works!</p>
+<div class="card-holder" fxLayout="row wrap" fxLayoutGap="20px">
+  <div class="header">
+    <button fxFlex="42%" mat-button>Home</button>
+    <button fxFlex="42%" mat-button routerLink="/blog">Blog</button>
+  </div>
+  <div class="project-card">
+    <div fxLayout="row wrap" fxLayoutGap="10px grid">
+      <div
+        fxFlex="42%"
+        fxFlex.xs="100%"
+        fxFlex.sm="33%"
+        *ngFor="let card of projectList"
+      >
+        <mat-card class="{{ card.class }}">
+          <mat-card-header *ngIf="card.name">
+            <mat-card-title
+              class="{{ card.titleclass }}"
+              routerLink="/{{ card.link }}"
+              >{{ card.name }}</mat-card-title
+            >
+
+            <mat-card-subtitle
+              class="{{ card.descriptionClass }}"
+              routerLink="/{{ card.link }}"
+              >{{ card.description }}</mat-card-subtitle
+            >
+          </mat-card-header>
+          <img
+            class="profile"
+            mat-card-image
+            src="{{ card.img }}"
+            routerLink="/{{ card.link }}"
+          />
+          <div *ngIf="card.buttons1">
+            <button class="blue-backround" mat-fab color="primary">
+              <img
+                class="button-img"
+                mat-card-image
+                src="{{ card.buttons1 }}"
+                routerLink="/{{ card.link }}"
+              />
+            </button>
+            <button class="blue-backround" mat-fab color="primary">
+              <img
+                class="button-img"
+                mat-card-image
+                src="{{ card.buttons2 }}"
+                routerLink="/{{ card.link }}"
+              />
+            </button>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <div class="project-card"></div>
+</div>
