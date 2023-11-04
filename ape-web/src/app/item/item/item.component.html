@@ -1,8 +1,4 @@
 <div class="card-holder" fxLayout="row wrap" fxLayoutGap="20px">
-  <div class="header">
-    <button fxFlex="42%" mat-button>Home</button>
-    <button fxFlex="42%" mat-button routerLink="/blog">Blog</button>
-  </div>
   <div class="project-card">
     <div fxLayout="row wrap" fxLayoutGap="10px grid">
       <div
@@ -14,10 +10,8 @@
         <mat-card>
           <mat-card-header *ngIf="card.name">
             <mat-card-title>{{ card.name }}</mat-card-title>
-
-            <mat-card-subtitle>{{ card.description }}</mat-card-subtitle>
           </mat-card-header>
-          <img class="profile" mat-card-image src="{{ card.discrimination }}" />
+          <img class="profile" mat-card-image src="{{ card.name }}" />
         </mat-card>
       </div>
     </div>

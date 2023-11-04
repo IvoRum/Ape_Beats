@@ -1,17 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Instrument } from 'src/app/domains/Instrument';
+import { Record } from 'src/app/domains/Record';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataServiceService {
-  private apiUrl = 'http://your-backend-server/api'; // Replace with your actual API URL
+  private apiUrl = 'https://localhost:8080/api/v1/';
 
   constructor(private http: HttpClient) {}
 
-  // Example method to fetch data using an HTTP GET request
-  fetchData(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/fetch-data`);
+  fetchInstruments(): Observable<Instrument[]> {
+    return this.http.get<Instrument[]>(
+      `http://localhost:8080/api/v1/instrument`
+    );
+  }
+
+  fetchRecords(): Observable<Record[]> {
+    return this.http.get<Record[]>(`http://localhost:8080/api/v1/record`);
   }
 }

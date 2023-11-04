@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Item } from 'src/app/domains/Item';
 
 @Component({
   selector: 'app-item',
@@ -7,5 +6,5 @@ import { Item } from 'src/app/domains/Item';
   styleUrls: ['./item.component.css'],
 })
 export class ItemComponent {
-  @Input() projectList: Item[] | undefined;
+  @Input() projectList: any[] | undefined;
 }

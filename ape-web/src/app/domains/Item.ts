@@ -1,6 +1,6 @@
 export interface Item {
-  name: string;
   type: string;
+  name: string;
   company: string;
   inStock: boolean;
   price: number;
