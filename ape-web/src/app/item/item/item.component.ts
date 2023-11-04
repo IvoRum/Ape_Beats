@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Item } from 'src/app/domains/Item';
 
 @Component({
   selector: 'app-item',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./item.component.css'],
 })
 export class ItemComponent {
-  projectList = [];
+  @Input() projectList: Item[] | undefined;
 }

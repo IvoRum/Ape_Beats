@@ -2,7 +2,6 @@ package com.example.apemain.controller;
 
 import com.example.apemain.domains.Artist;
 import com.example.apemain.service.ArtistService;
-import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
