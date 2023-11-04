@@ -18,6 +18,7 @@ import java.util.Random;
 @Repository
 @RequiredArgsConstructor
 public class ApeRepository {
+
     private final DataSource dataSource;
 
     public List<Integer> getallTest(){
@@ -186,12 +187,11 @@ public class ApeRepository {
 
         String sql= "INSERT INTO Artist(id,Name,record_label,time_stamp) " +
                 "VALUES (?,?,?,?);";
-        Random rand = new Random();
-        int n = rand.nextInt(50) + 3;
+
         Connection connection = DataSourceUtils.getConnection(dataSource);
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setInt(1, n);
+            statement.setInt(1, RepositoryIdGetter.getLastIdArtist(connection)+1);
             statement.setString(2, artistName);
             statement.setInt(3, recordLabelID);
             statement.setDate(4, date);
@@ -200,22 +200,69 @@ public class ApeRepository {
         }
     }
 
-    public void insertInstrument(String artistName,int recordLabelID,Date date) throws Exception {
+    public void insertInstrument(int price,String description,Date manufacturingDate,String name,int genreId,int companyId,int type,Date date) throws Exception {
 
-        String sql= "INSERT INTO Artist(id,Name,record_label,time_stamp) " +
-                "VALUES (?,?,?,?);";
-        // "VALUES (1,'GunsNRoses',1,'2023-10-28');";
-        Random rand = new Random();
-        int n = rand.nextInt(50) + 3;
+        String sql= "INSERT INTO Instrument(Instrument_id,item_id,type,time_stamp) " +
+                "VALUES (?,?,?,?)";
+        //"VALUES (4,7,1,'2023-10-28')";
         Connection connection = DataSourceUtils.getConnection(dataSource);
-
+        insertItem(price, description, manufacturingDate, name, genreId, companyId, date,connection);
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setInt(1, n);
-            statement.setString(2, artistName);
-            statement.setInt(3, recordLabelID);
+            statement.setInt(1, RepositoryIdGetter.getLastIdInstrument(connection)+1);
+            statement.setInt(2, RepositoryIdGetter.getLastIdItem(connection));
+            statement.setInt(3, type);
             statement.setDate(4, date);
 
             ResultSet resultSet = statement.executeQuery();
         }
     }
+
+    public void insertRecord(int price,String description,Date manufacturingDate,String name,int genreId,int companyId,Date date,
+                             int artistId,int recordLabelId) throws Exception {
+
+        String sql= "INSERT INTO Record(Record_id,item_id,artist,record_label,time_stamp) " +
+                "VALUES (?,?,?,?,?);";
+                //"VALUES (1,4,1,1,'2023-10-28');";
+        Connection connection = DataSourceUtils.getConnection(dataSource);
+        insertItem(price, description, manufacturingDate, name, genreId, companyId, date,connection);
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, RepositoryIdGetter.getLastIdRecord(connection)+1);
+            statement.setInt(2, RepositoryIdGetter.getLastIdItem(connection));
+            statement.setInt(3, artistId);
+            statement.setInt(4, recordLabelId);
+            statement.setDate(5, date);
+
+            ResultSet resultSet = statement.executeQuery();
+        }catch (Exception e){
+            e.printStackTrace();
+
+        }
+    }
+
+    public void insertItem(int price,String description,Date manufacturingDate,String name,int genreId,int companyId,Date date,Connection connection) throws Exception {
+
+        String sql= "INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp) " +
+                "VALUES (?,?,?,?,?,?,?,?,?,?)";
+//                "values (1,TRUE,32,'Some diescriopton','2013-10-28','Fender_Squier_Classic','Some diescriopton',1,1,'2023-10-28');\n";
+        // = DataSourceUtils.getConnection(dataSource);
+
+        try {PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, RepositoryIdGetter.getLastIdItem(connection)+1);
+            statement.setBoolean(2, true);
+            statement.setInt(3, price);
+            statement.setString(4, description);
+            statement.setDate(5, manufacturingDate);
+            statement.setString(6, name);
+            statement.setString(7, description);
+            statement.setInt(8, genreId);
+            statement.setInt(9, companyId);
+            statement.setDate(10, date);
+
+            ResultSet resultSet = statement.executeQuery();
+        }catch (Exception e){
+            e.printStackTrace();
+
+        }
+    }
+
 }

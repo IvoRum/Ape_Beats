@@ -4,8 +4,10 @@ import com.example.apemain.domains.Record;
 import com.example.apemain.repository.ApeRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.util.List;
 
 @Service
@@ -20,6 +22,14 @@ public class RecordService {
         } catch (Exception e) {
             e.printStackTrace();
             return null;
+        }
+    }
+
+    public void putRecord(int price, String description, Date manufacturingDate, String name, int genreId, int companyId, Date date, int artistId, int recordLabelId) {
+        try {
+            repository.insertRecord(price, description, manufacturingDate, name, genreId, companyId, date,artistId,recordLabelId);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 }
