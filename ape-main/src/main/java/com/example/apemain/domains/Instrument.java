@@ -16,4 +16,5 @@ public class Instrument {
     private final int price;
     private final Date date;
     private final String genre;
+    private final String discrimination;
 }

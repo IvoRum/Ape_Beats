@@ -6,4 +6,5 @@ export interface Instrument {
   price: number;
   date: string;
   genre: string;
+  discrimination: string;
 }

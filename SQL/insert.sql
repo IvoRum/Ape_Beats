@@ -119,38 +119,38 @@ values (3,'Yamaha','2023-10-28');
 */
 
 INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
-values (1,TRUE,32,'Some diescriopton','2013-10-28','Fender_Squier_Classic','Some diescriopton',1,1,'2023-10-28');
+values (1,TRUE,32,'Fender_Squier_affinity_Series_Jazz_Bass.jpg','2013-10-28','Fender_Squier_Classic','Some diescriopton',1,1,'2023-10-28');
 
 INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
-values (2,TRUE,54,'Some diescriopton','2013-10-28','Fender_Squier_Affinity','Some diescriopton',3,1,'2023-10-28');
+values (2,TRUE,54,'Fender_Squier_Affinity.jpg','2013-10-28','Fender_Squier_Affinity','Some diescriopton',3,1,'2023-10-28');
 
 INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
-values (3,TRUE,65,'Some diescriopton','2013-10-28','Yamaha_YAS','Some diescriopton',2,3,'2023-10-28');
+values (3,TRUE,65,'Fender_Squier_Bass.jpg','2013-10-28','Yamaha_YAS','Some diescriopton',2,3,'2023-10-28');
 
 /*
     Creating 3 Records
 */
 
 INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
-values (4,TRUE,32,'Some diescriopton','2013-10-28','Guns_N_Rosses_GreatestHits','Some diescriopton',2,3,'2023-10-28');
+values (4,TRUE,32,'Guns_N_Rosses_GreatestHits.jpg','2013-10-28','Guns_N_Rosses_GreatestHits','Some diescriopton',2,3,'2023-10-28');
 
 INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
-values (5,TRUE,43,'Some diescriopton','2013-10-28','Nirvana_Nevermind','Some diescriopton',2,3,'2023-10-28');
+values (5,TRUE,43,'Nirvana_Nevermind.JPG','2013-10-28','Nirvana_Nevermind','Some diescriopton',2,3,'2023-10-28');
 
 INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
-values (6,TRUE,15,'Some diescriopton','2013-10-28','Queen_Greatest_Hits_1','Some diescriopton',2,3,'2023-10-28');
+values (6,TRUE,15,'Queen_Greatest_Hits_1.jpg','2013-10-28','Queen_Greatest_Hits_1','Some diescriopton',2,3,'2023-10-28');
 
 INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
-values (7,TRUE,65,'Some diescriopton','2013-10-28','Yamaha_YAS','Some diescriopton',2,3,'2023-10-28');
+values (7,TRUE,65,'Yamaha_YAS_280_S.jpg','2013-10-28','Yamaha_YAS','Some diescriopton',2,3,'2023-10-28');
 
 INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
-values (8,TRUE,45,'Some diescriopton','2013-10-28','Yamaha_YAS','Some diescriopton',2,3,'2023-10-28');
+values (8,TRUE,45,'Yamaha_YAS_280.jpg','2013-10-28','Yamaha_YAS','Some diescriopton',2,3,'2023-10-28');
 
 INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
-values (9,TRUE,34,'Some diescriopton','2013-10-28','Yamaha_YAS','Some diescriopton',2,3,'2023-10-28');
+values (9,TRUE,34,'Yamaha_YEP_642_TS.jpg','2013-10-28','Yamaha_YAS','Some diescriopton',2,3,'2023-10-28');
 
 INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
-values (10,TRUE,47,'Some diescriopton','2013-10-28','Yamaha_YAS','Some diescriopton',2,3,'2023-10-28');
+values (10,TRUE,47,'Yamaha_YEP_642.jpg','2013-10-28','Yamaha_YAS','Some diescriopton',2,3,'2023-10-28');
 
 /*
   Creating 3 Instruments

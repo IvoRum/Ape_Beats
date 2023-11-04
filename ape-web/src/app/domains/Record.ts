@@ -4,4 +4,5 @@ export interface Record {
   stock: boolean;
   artistName: string;
   recordLabelName: string;
+  discrimination: string;
 }

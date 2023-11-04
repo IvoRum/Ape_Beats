@@ -11,7 +11,11 @@
           <mat-card-header *ngIf="card.name">
             <mat-card-title>{{ card.name }}</mat-card-title>
           </mat-card-header>
-          <img class="profile" mat-card-image src="{{ card.name }}" />
+          <img
+            class="profile"
+            mat-card-image
+            src="assets\\{{ card.discrimination }}"
+          />
         </mat-card>
       </div>
     </div>

@@ -12,4 +12,5 @@ public class Record {
     private final boolean stock;
     private final String artistName;
     private final String recordLableName;
+    private final String discrimination;
 }

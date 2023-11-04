@@ -30,6 +30,7 @@ public class ApeRepository {
         String sql= "SELECT " +
                 "it.instrument_type_name, " +
                 "i3.name as item_name,c.name as company_name,i3.stock,i3.price,i3.manufacturing_date, " +
+                "i3.discrimination ,"+
                 "g.name as genre_name " +
                 "FROM instrument " +
                 "join public.item i3 on i3.item_id = instrument.item_id " +
@@ -50,8 +51,9 @@ public class ApeRepository {
                     String genre = resultSet.getString("genre_name");
                     int price = resultSet.getInt("price");
                     String type = resultSet.getString("instrument_type_name");
+                    String des = resultSet.getString("discrimination");
 
-                    instrumentList.add(new Instrument(type, name, company, stock, price, date, genre));
+                    instrumentList.add(new Instrument(type, name, company, stock, price, date, genre, des));
             }
             return List.copyOf(instrumentList);
         } catch (SQLException e) {
@@ -61,7 +63,8 @@ public class ApeRepository {
     }
 
     public List<Record> getAllRecordData() throws Exception {
-        String sql= "SELECT i.name as item_name ,i.price,i.stock,a.name as artist_name,rl.name as record_label_name from record " +
+        String sql= "SELECT i.name as item_name ,i.price,i.stock,a.name as artist_name,rl.name as record_label_name, " +
+                "i.discrimination from record "+
                 "join public.artist a on a.id = record.artist " +
                 "join public.record_label rl on rl.id = record.record_label " +
                 "join public.item i on i.item_id = record.item_id;";
@@ -76,8 +79,9 @@ public class ApeRepository {
                 boolean stock = resultSet.getBoolean("stock");
                 String artisnName = resultSet.getString("artist_name");
                 String recordLabel = resultSet.getString("record_label_name");
+                String des = resultSet.getString("discrimination");
 
-                recordList.add(new Record(name,price,stock,artisnName,recordLabel));
+                recordList.add(new Record(name,price,stock,artisnName,recordLabel,des));
             }
             return List.copyOf(recordList);
         } catch (SQLException e) {

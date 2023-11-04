@@ -18,17 +18,22 @@
     fxLayoutGap.xs="0"
   >
     <div class="buttons" fxFlex="26%">
-      <button mat-flat-button color="primary" class="button">
+      <button
+        mat-flat-button
+        color="primary"
+        class="button"
+        (click)="setIstrumets()"
+      >
         Instruments
       </button>
       <button mat-flat-button color="primary" class="button">Records</button>
       <button mat-flat-button color="primary" class="button">Artists</button>
     </div>
   </div>
-  <div class="all-instrument-holder">
+  <div *ngIf="this.instumentFlag" class="all-instrument-holder">
     <app-item [projectList]="this.instruments"></app-item>
   </div>
-  <div class="all-instrument-holder">
+  <div *ngIf="this.recordsFlag" class="all-instrument-holder">
     <app-item [projectList]="this.records"></app-item>
   </div>
 </div>
