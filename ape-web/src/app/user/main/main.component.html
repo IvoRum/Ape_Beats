@@ -10,13 +10,7 @@
     <div class="banner_title">Ape Beats</div>
   </div>
 
-  <div
-    class="container"
-    fxLayout="row wrap"
-    fxLayoutAlign="center"
-    fxLayoutGap="10px"
-    fxLayoutGap.xs="0"
-  >
+  <div>
     <div class="buttons" fxFlex="26%">
       <button
         mat-flat-button
@@ -30,7 +24,18 @@
       <button mat-flat-button color="primary" class="button">Artists</button>
     </div>
   </div>
-  <div *ngIf="this.instumentFlag" class="all-instrument-holder">
+  <div
+    fxFlex="18%"
+    fxFlex.xs="100%"
+    fxFlex.sm="28%"
+    class="container"
+    fxLayout="row wrap"
+    fxLayoutAlign="center"
+    fxLayoutGap="10px"
+    fxLayoutGap.xs="0"
+    *ngIf="this.instumentFlag"
+    class="all-instrument-holder"
+  >
     <app-item [projectList]="this.instruments"></app-item>
   </div>
   <div *ngIf="this.recordsFlag" class="all-instrument-holder">

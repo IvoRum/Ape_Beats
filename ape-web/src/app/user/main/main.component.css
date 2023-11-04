@@ -32,3 +32,12 @@
 .button {
   padding-left: 1em;
 }
+
+.container {
+  margin: 10px;
+  padding-bottom: 4em;
+}
+
+.fitured-blog {
+  max-width: 10%;
+}
