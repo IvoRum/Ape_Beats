@@ -265,4 +265,20 @@ public class ApeRepository {
         }
     }
 
+    public void updateItemName(int itemId,String name) throws Exception {
+
+        String sql= "UPDATE Item set name = ? where item_id = ? ;";
+        Connection connection = DataSourceUtils.getConnection(dataSource);
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, name);
+            statement.setInt(2, itemId);
+
+            statement.executeQuery();
+        }catch (Exception e){
+            e.printStackTrace();
+
+        }
+    }
+
 }

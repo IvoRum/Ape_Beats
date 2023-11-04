@@ -14,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class InstrumentService {
     private final ApeRepository apeRepository;
+    private final ItemService itemService;
 
     public List<Instrument> getAllInstruments(){
         try {
@@ -32,5 +33,9 @@ public class InstrumentService {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public void updateInstrumentName(int id, String name) {
+        itemService.updateItemName(id,name);
     }
 }

@@ -5,10 +5,7 @@ import com.example.apemain.domains.Instrument;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
 import java.util.List;
@@ -41,6 +38,12 @@ public class InstrumentController {
             @PathVariable int type)
     {
         instrumentService.putInstrument(price, description, manufacturingDate, name, genreId, companyId, type, date);
+        return ResponseEntity.ok("da");
+    }
+
+    @PostMapping("/{id}/{name}")
+    public ResponseEntity<String> updateInstrument(@PathVariable int id,@PathVariable String name){
+        instrumentService.updateInstrumentName(id,name);
         return ResponseEntity.ok("da");
     }
 }

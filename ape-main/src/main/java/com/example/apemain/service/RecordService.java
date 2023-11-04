@@ -15,6 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RecordService {
     private final ApeRepository repository;
+    private final ItemService itemService;
 
     public List<Record> getAllRecords(){
         try {
@@ -31,5 +32,9 @@ public class RecordService {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void updateInstrumentName(int id, String name) {
+        itemService.updateItemName(id,name);
     }
 }
