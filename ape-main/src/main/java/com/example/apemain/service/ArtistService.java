@@ -7,6 +7,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.util.List;
 
 @Service
@@ -23,6 +24,25 @@ public class ArtistService {
         } catch (Exception e) {
             e.printStackTrace();
             return null;
+        }
+    }
+
+    public Artist getArtistByName(String artistName) {
+        try {
+            return repository.getArtistByName(artistName);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public boolean putAstist(String artistName, int recordLabelID, Date date){
+        try {
+            repository.insertArtist(artistName,recordLabelID,date);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
     }
 }

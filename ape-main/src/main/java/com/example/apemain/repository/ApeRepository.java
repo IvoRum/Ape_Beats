@@ -4,7 +4,7 @@ import com.example.apemain.domains.Artist;
 import com.example.apemain.domains.Instrument;
 import com.example.apemain.domains.MostSoldItem;
 import com.example.apemain.domains.Record;
-import jakarta.persistence.criteria.CriteriaBuilder;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.jdbc.datasource.DataSourceUtils;
@@ -13,6 +13,7 @@ import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Repository
 @RequiredArgsConstructor
@@ -151,6 +152,70 @@ public class ApeRepository {
         } catch (SQLException e) {
             e.printStackTrace();
             throw new Exception();
+        }
+    }
+
+    public Artist getArtistByName(String artistName) throws Exception {
+
+        String sql= "SELECT artist.name as artist_name, rl.name as record_label_name from artist " +
+                "join public.record r on artist.id = r.artist " +
+                "join public.record_label rl on artist.record_label = rl.id " +
+                "where artist.name = ? " +
+                "Limit 1;";
+        Connection connection = DataSourceUtils.getConnection(dataSource);
+
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1,artistName);
+
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                String name = resultSet.getString("artist_name");
+                String recordLabel = resultSet.getString("record_label_name");
+
+                return new Artist(name,recordLabel);
+            }else {
+                throw new SQLException();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new Exception();
+        }
+    }
+
+    public void insertArtist(String artistName,int recordLabelID,Date date) throws Exception {
+
+        String sql= "INSERT INTO Artist(id,Name,record_label,time_stamp) " +
+                "VALUES (?,?,?,?);";
+        Random rand = new Random();
+        int n = rand.nextInt(50) + 3;
+        Connection connection = DataSourceUtils.getConnection(dataSource);
+
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, n);
+            statement.setString(2, artistName);
+            statement.setInt(3, recordLabelID);
+            statement.setDate(4, date);
+
+            ResultSet resultSet = statement.executeQuery();
+        }
+    }
+
+    public void insertInstrument(String artistName,int recordLabelID,Date date) throws Exception {
+
+        String sql= "INSERT INTO Artist(id,Name,record_label,time_stamp) " +
+                "VALUES (?,?,?,?);";
+        // "VALUES (1,'GunsNRoses',1,'2023-10-28');";
+        Random rand = new Random();
+        int n = rand.nextInt(50) + 3;
+        Connection connection = DataSourceUtils.getConnection(dataSource);
+
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, n);
+            statement.setString(2, artistName);
+            statement.setInt(3, recordLabelID);
+            statement.setDate(4, date);
+
+            ResultSet resultSet = statement.executeQuery();
         }
     }
 }
