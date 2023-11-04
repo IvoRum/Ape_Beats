@@ -45,4 +45,34 @@ SELECT count(sale_item.item) as count_,i.name from sale_item
     join public.item i on sale_item.item=i.item_id
 group by i.name
 order by count_ desc
+LIMIT 1
+;
+
+select id from artist
+order by id desc
 LIMIT 1;
+
+
+select Instrument_id from instrument
+order by Instrument_id desc
+LIMIT 1;
+
+select item_id from Item
+order by item_id desc
+LIMIT 1;
+
+select Record_id from Record
+order by Record_id desc
+LIMIT 1;
+
+select id from Sale
+order by id desc
+LIMIT 1;
+
+select * from Instrument;
+select * from Item;
+select * from Record;
+
+
+UPDATE Item set name='balaklava' where item_id=15;
+UPDATE Item set name='balaklava' where item_id=15;
