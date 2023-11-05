@@ -37,4 +37,12 @@ export class DataServiceService {
   updateItemName(data: any) {
     return this.http.post('http://localhost:8080/api/v1/instrument', data);
   }
+
+  newInstrument(data: any) {
+    return this.http.put('http://localhost:8080/api/v1/instrument', data);
+  }
+
+  newrecord(data: any) {
+    return this.http.put('http://localhost:8080/api/v1/record', data);
+  }
 }

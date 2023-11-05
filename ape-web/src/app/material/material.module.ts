@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [],
@@ -18,6 +19,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatTableModule,
     ReactiveFormsModule,
     MatFormFieldModule,
+    FlexLayoutModule,
   ],
   exports: [
     MatButtonModule,
@@ -26,6 +28,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatTableModule,
     ReactiveFormsModule,
     MatFormFieldModule,
+    FlexLayoutModule,
   ],
 })
 export class MaterialModule {}
