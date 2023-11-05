@@ -92,7 +92,6 @@ public class ApeRepository {
 
     public List<Artist> getAllArtistData() throws Exception {
         String sql= "SELECT artist.name as artist_name, rl.name as record_label_name from artist " +
-                "join public.record r on artist.id = r.artist " +
                 "join public.record_label rl on artist.record_label = rl.id;";
         Connection connection = DataSourceUtils.getConnection(dataSource);
 
@@ -201,7 +200,7 @@ public class ApeRepository {
             statement.setInt(3, recordLabelID);
             statement.setDate(4, date);
 
-            ResultSet resultSet = statement.executeQuery();
+            statement.executeQuery();
         }
     }
 

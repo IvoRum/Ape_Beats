@@ -35,6 +35,8 @@ export class MainComponent implements OnInit {
   formCreateInstument: FormGroup;
   formrecord: FormGroup;
   formCreateRecord: FormGroup;
+  formCreateArtist: FormGroup;
+
   constructor(
     private dataService: DataServiceService,
     private formBuilder: FormBuilder
@@ -70,6 +72,11 @@ export class MainComponent implements OnInit {
       companyId: ['companyId'],
       date: ['date'],
       type: ['type'],
+    });
+    this.formCreateArtist = this.formBuilder.group({
+      artistName: ['artistName'],
+      recordLabelID: ['recordLabelID'],
+      date: ['date'],
     });
   }
 
@@ -111,6 +118,16 @@ export class MainComponent implements OnInit {
       // Make the PUT request to update the data using the values in this.form.value
       this.dataService
         .newrecord(this.formCreateRecord.value)
+        .subscribe((response) => {
+          // Handle the response
+        });
+    }
+  }
+  onSubmitNewArtist() {
+    if (this.formCreateArtist.valid) {
+      // Make the PUT request to update the data using the values in this.form.value
+      this.dataService
+        .newArtist(this.formCreateArtist.value)
         .subscribe((response) => {
           // Handle the response
         });
