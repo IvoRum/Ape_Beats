@@ -1,4 +1,8 @@
 package com.example.apemain.domains;
 
-public record CreateArtist() {
+import java.sql.Date;
+
+public record CreateArtist(String artistName,
+                           int recordLabelID,
+                           Date date) {
 }

@@ -1,14 +1,12 @@
 package com.example.apemain.controller;
 
 import com.example.apemain.domains.Artist;
+import com.example.apemain.domains.CreateArtist;
 import com.example.apemain.service.ArtistService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
 import java.util.List;
@@ -29,12 +27,10 @@ public class ArtistController {
         return ResponseEntity.ok(artistService.getArtistByName(artistName));
     }
 
-    @PutMapping("/{artistName}/{recordLabelID}/{date}")
+    @PutMapping()
     private ResponseEntity<Boolean> putArtist(
-            @PathVariable String artistName,
-            @PathVariable int recordLabelID,
-            @PathVariable Date date
+            @RequestBody CreateArtist createArtist
     ){
-        return ResponseEntity.ok(artistService.putAstist(artistName,recordLabelID,date));
+        return ResponseEntity.ok(artistService.putAstist(createArtist.artistName(),createArtist.recordLabelID(),createArtist.date()));
     }
 }
