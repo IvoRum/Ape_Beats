@@ -1,2 +1,4 @@
-package com.example.apemain.domains;public record CreateArtist() {
+package com.example.apemain.domains;
+
+public record CreateArtist() {
 }

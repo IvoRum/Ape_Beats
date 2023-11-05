@@ -1,2 +1,4 @@
-package com.example.apemain.domains;public record UpdateArtist() {
+package com.example.apemain.domains;
+
+public record UpdateArtist() {
 }

@@ -7,6 +7,7 @@ import { MatTableModule } from '@angular/material/table';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [],
@@ -20,6 +21,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ReactiveFormsModule,
     MatFormFieldModule,
     FlexLayoutModule,
+    MatDialogModule,
   ],
   exports: [
     MatButtonModule,
@@ -29,6 +31,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ReactiveFormsModule,
     MatFormFieldModule,
     FlexLayoutModule,
+    MatDialogModule,
   ],
 })
 export class MaterialModule {}

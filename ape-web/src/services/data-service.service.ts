@@ -30,6 +30,10 @@ export class DataServiceService {
     );
   }
 
+  fetchArtistByName(name: string): Observable<Artist> {
+    return this.http.get<Artist>(`http://localhost:8080/api/v1/artist/` + name);
+  }
+
   fetchArtists(): Observable<Artist[]> {
     return this.http.get<Artist[]>(`http://localhost:8080/api/v1/artist`);
   }

@@ -3,6 +3,7 @@ import { Instrument } from 'src/app/domains/Instrument';
 import { DataServiceService } from 'src/services/data-service.service';
 import { Record } from 'src/app/domains/Record';
 import { Item } from 'src/app/domains/Item';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -16,7 +17,10 @@ export class MainComponent implements OnInit {
   instumentFlag: boolean = true;
   recordsFlag: boolean = true;
 
-  constructor(private dataService: DataServiceService) {}
+  constructor(
+    private dataService: DataServiceService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.instumentFlag = true;
@@ -32,13 +36,13 @@ export class MainComponent implements OnInit {
     });
   }
 
-  setIstrumets() {
-    this.instumentFlag = true;
-    this.recordsFlag = false;
+  goInstruments() {
+    this.router.navigate(['/instruments']);
   }
-
-  setRecords() {
-    this.instumentFlag = false;
-    this.recordsFlag = true;
+  goArtist() {
+    this.router.navigate(['/artist']);
+  }
+  goRecord() {
+    this.router.navigate(['/record']);
   }
 }

@@ -15,12 +15,16 @@
       mat-flat-button
       color="primary"
       class="button"
-      (click)="setIstrumets()"
+      (click)="goInstruments()"
     >
       Instruments
     </button>
-    <button mat-flat-button color="primary" class="button">Records</button>
-    <button mat-flat-button color="primary" class="button">Artists</button>
+    <button mat-flat-button color="primary" class="button" (click)="goRecord()">
+      Records
+    </button>
+    <button mat-flat-button color="primary" class="button" (click)="goArtist()">
+      Artists
+    </button>
   </div>
 </div>
 <div
