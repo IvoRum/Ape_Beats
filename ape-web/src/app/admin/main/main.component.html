@@ -1,0 +1,164 @@
+<div>
+  <div
+    fxLayout="row wrap"
+    fxLayoutAlign="center"
+    fxLayoutGap="10px"
+    fxLayoutGap.xs="0"
+  >
+    <div fxFlex="60%">
+      <h1>Instruments</h1>
+      <table mat-table [dataSource]="instruments" class="mat-elevation-z8">
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="type">
+          <th mat-header-cell *matHeaderCellDef>type</th>
+          <td mat-cell *matCellDef="let element">{{ element.type }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="company">
+          <th mat-header-cell *matHeaderCellDef>company</th>
+          <td mat-cell *matCellDef="let element">{{ element.company }}</td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef>price</th>
+          <td mat-cell *matCellDef="let element">{{ element.price }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="inStock">
+          <th mat-header-cell *matHeaderCellDef>inStock</th>
+          <td mat-cell *matCellDef="let element">{{ element.inStock }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="genre">
+          <th mat-header-cell *matHeaderCellDef>genre</th>
+          <td mat-cell *matCellDef="let element">{{ element.genre }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+    <div fxFlex="30%">
+      <h1>Alter Instruments</h1>
+      <form
+        [formGroup]="formCreateInstument"
+        (ngSubmit)="onSubmitNewIstrument()"
+      >
+        Create instrument<br />
+        <input type="text" formControlName="price" /><br />
+        <input type="text" formControlName="genraId" /><br />
+        <input type="text" formControlName="description" /><br />
+        <input type="date" formControlName="manufacturingDate" /><br />
+        <input type="text" formControlName="name" /><br />
+        <input type="text" formControlName="genreId" /><br />
+        <input type="text" formControlName="companyId" /><br />
+        <input type="date" formControlName="date" /><br />
+        <input type="text" formControlName="type" /><br />
+        <button type="submit">Create</button><br />
+      </form>
+      <form [formGroup]="forminstument" (ngSubmit)="onSubmitNewIstrumentName()">
+        Update instrument<br />
+        <input type="text" formControlName="id" /><br />
+        <input type="text" formControlName="name" /><br />
+        <button type="submit">Update</button><br />
+      </form>
+    </div>
+  </div>
+  <div
+    fxLayout="row wrap"
+    fxLayoutAlign="center"
+    fxLayoutGap="10px"
+    fxLayoutGap.xs="0"
+  >
+    <div fxFlex="60%">
+      <h1>Records</h1>
+      <table mat-table [dataSource]="records" class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef>price</th>
+          <td mat-cell *matCellDef="let element">{{ element.price }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="artistName">
+          <th mat-header-cell *matHeaderCellDef>artistName</th>
+          <td mat-cell *matCellDef="let element">{{ element.artistName }}</td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="recordLableName">
+          <th mat-header-cell *matHeaderCellDef>recordLableName</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.recordLableName }}
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns1"></tr>
+      </table>
+    </div>
+    <br />
+    <div fxFlex="30%">
+      <h1>Allter table</h1>
+      <form [formGroup]="formCreateRecord" (ngSubmit)="onSubmitNewRecord()">
+        Insert Record<br />
+        <input type="text" formControlName="price" /> <br />
+        <input type="text" formControlName="description" /> <br />
+        <input type="date" formControlName="manufacturingDate" /> <br />
+        <input type="text" formControlName="name" /> <br />
+        <input type="text" formControlName="genreId" /> <br />
+        <input type="text" formControlName="companyId" /> <br />
+        <input type="date" formControlName="date" /> <br />
+        <input type="text" formControlName="artistId" /> <br />
+        <input type="text" formControlName="recordLabelId" /> <br />
+
+        <button type="submit">Insert</button>
+      </form>
+      <br />
+      <form [formGroup]="formrecord" (ngSubmit)="onSubmitNewRecordName()">
+        Update Record<br />
+        <input type="text" formControlName="id" />
+        <input type="text" formControlName="name" />
+        <!-- Other form fields -->
+
+        <button type="submit">Update</button>
+      </form>
+    </div>
+  </div>
+  <h1>Artists</h1>
+  <table mat-table [dataSource]="artist" class="mat-elevation-z8">
+    <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+    <!-- Position Column -->
+    <ng-container matColumnDef="recordLabel">
+      <th mat-header-cell *matHeaderCellDef>recordLabel</th>
+      <td mat-cell *matCellDef="let element">{{ element.recordLabel }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns2"></tr>
+  </table>
+</div>
