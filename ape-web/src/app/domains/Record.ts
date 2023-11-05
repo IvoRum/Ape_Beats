@@ -3,6 +3,6 @@ export interface Record {
   price: number;
   stock: boolean;
   artistName: string;
-  recordLabelName: string;
+  recordLableName: string;
   discrimination: string;
 }

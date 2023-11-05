@@ -1,44 +1,55 @@
-<div>
-  <div
-    class="container"
-    fxLayout="row wrap"
-    fxLayoutAlign="center"
-    fxLayoutGap="10px"
-    fxLayoutGap.xs="0"
-    class="banner"
-  >
-    <div class="banner_title">Ape Beats</div>
-  </div>
+<div
+  class="container"
+  fxLayout="row wrap"
+  fxLayoutAlign="center"
+  fxLayoutGap="10px"
+  fxLayoutGap.xs="0"
+  class="banner"
+>
+  <div class="banner_title">Ape Beats</div>
+</div>
 
-  <div>
-    <div class="buttons" fxFlex="26%">
-      <button
-        mat-flat-button
-        color="primary"
-        class="button"
-        (click)="setIstrumets()"
-      >
-        Instruments
-      </button>
-      <button mat-flat-button color="primary" class="button">Records</button>
-      <button mat-flat-button color="primary" class="button">Artists</button>
-    </div>
+<div>
+  <div class="buttons" fxFlex="26%">
+    <button
+      mat-flat-button
+      color="primary"
+      class="button"
+      (click)="setIstrumets()"
+    >
+      Instruments
+    </button>
+    <button mat-flat-button color="primary" class="button">Records</button>
+    <button mat-flat-button color="primary" class="button">Artists</button>
   </div>
-  <div
-    fxFlex="18%"
-    fxFlex.xs="100%"
-    fxFlex.sm="28%"
-    class="container"
-    fxLayout="row wrap"
-    fxLayoutAlign="center"
-    fxLayoutGap="10px"
-    fxLayoutGap.xs="0"
-    *ngIf="this.instumentFlag"
-    class="all-instrument-holder"
-  >
-    <app-item [projectList]="this.instruments"></app-item>
+</div>
+<div
+  class="container"
+  fxLayout="row wrap"
+  fxLayoutAlign="center"
+  fxLayoutGap="10px"
+  fxLayoutGap.xs="0"
+  class="all-instrument-holder"
+>
+  <h1>Most sold Item</h1>
+  <br />
+  <div fxFlex="100%" fxFlex.xs="40%" fxFlex.sm="33%" fxLayoutAlign="center">
+    <mat-card class="card-img-mostsold">
+      <mat-card-header *ngIf="this.mostSoldItem.name">
+        <mat-card-title>{{ this.mostSoldItem.name }}</mat-card-title>
+      </mat-card-header>
+      Untis sold:{{ this.mostSoldItem.count }}
+      <img
+        mat-card-image
+        src="assets\\{{ this.mostSoldItem.discrimination }}"
+      />
+    </mat-card>
   </div>
-  <div *ngIf="this.recordsFlag" class="all-instrument-holder">
-    <app-item [projectList]="this.records"></app-item>
-  </div>
+  <br />
+  <h1>Instruments</h1>
+  <br />
+  <app-item [projectList]="this.instruments"></app-item>
+  <h1>Records</h1>
+  <br />
+  <app-item [projectList]="this.records"></app-item>
 </div>

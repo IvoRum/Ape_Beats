@@ -1,5 +1,7 @@
 package com.example.apemain.controller;
 
+import com.example.apemain.domains.CreateInstrument;
+import com.example.apemain.domains.UpdateItemName;
 import com.example.apemain.service.InstrumentService;
 import com.example.apemain.domains.Instrument;
 import lombok.RequiredArgsConstructor;
@@ -26,24 +28,16 @@ public class InstrumentController {
         return ResponseEntity.ok(instrumentService.getAllInstruments());
     }
 
-    @PutMapping("/{price}/{description}/{manufacturingDate}/{name}/{genreId}/{companyId}/{date}/{type}")
-    public ResponseEntity<String> putInstrument(
-            @PathVariable int price,
-            @PathVariable String description,
-            @PathVariable Date manufacturingDate,
-            @PathVariable String name,
-            @PathVariable int genreId,
-            @PathVariable int companyId,
-            @PathVariable Date date,
-            @PathVariable int type)
+    @PutMapping()
+    public ResponseEntity<String> putInstrument(@RequestBody CreateInstrument createInstrument)
     {
-        instrumentService.putInstrument(price, description, manufacturingDate, name, genreId, companyId, type, date);
+        instrumentService.putInstrument(createInstrument.price(), createInstrument.description(), createInstrument.manufacturingDate(), createInstrument.name(), createInstrument.genreId(), createInstrument.companyId(), createInstrument.type(), createInstrument.date());
         return ResponseEntity.ok("da");
     }
 
-    @PostMapping("/{id}/{name}")
-    public ResponseEntity<String> updateInstrument(@PathVariable int id,@PathVariable String name){
-        instrumentService.updateInstrumentName(id,name);
+    @PostMapping()
+    public ResponseEntity<String> updateInstrument(@RequestBody UpdateItemName updateItemName){
+        instrumentService.updateInstrumentName(updateItemName.id(),updateItemName.name());
         return ResponseEntity.ok("da");
     }
 }

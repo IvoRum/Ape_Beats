@@ -1,24 +1,27 @@
-<div class="card-holder" fxLayout="row wrap" fxLayoutGap="20px">
-  <div class="project-card">
-    <div fxLayout="row wrap" fxLayoutGap="10px grid">
-      <div
-        fxFlex="42%"
-        fxFlex.xs="100%"
-        fxFlex.sm="33%"
-        *ngFor="let card of projectList"
-      >
-        <mat-card>
-          <mat-card-header *ngIf="card.name">
-            <mat-card-title>{{ card.name }}</mat-card-title>
-          </mat-card-header>
-          <img
-            class="card-img"
-            mat-card-image
-            src="assets\\{{ card.discrimination }}"
-          />
-        </mat-card>
-      </div>
-    </div>
+<div
+  class="card-holder"
+  class="container"
+  fxLayout="row wrap"
+  fxLayoutAlign="center"
+  fxLayoutGap="10px"
+  fxLayoutGap.xs="0"
+>
+  <div
+    fxFlex="12%"
+    fxFlex.xs="40%"
+    fxFlex.sm="33%"
+    class="da"
+    *ngFor="let card of projectList"
+  >
+    <mat-card>
+      <mat-card-header *ngIf="card.name">
+        <mat-card-title>{{ card.name }}</mat-card-title>
+      </mat-card-header>
+      <img
+        class="card-img"
+        mat-card-image
+        src="assets\\{{ card.discrimination }}"
+      />
+    </mat-card>
   </div>
-  <div class="project-card"></div>
 </div>

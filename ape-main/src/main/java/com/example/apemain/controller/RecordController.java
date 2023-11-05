@@ -1,6 +1,8 @@
 package com.example.apemain.controller;
 
+import com.example.apemain.domains.CreateRecord;
 import com.example.apemain.domains.Record;
+import com.example.apemain.domains.UpdateItemName;
 import com.example.apemain.service.RecordService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -21,26 +23,16 @@ public class RecordController {
         return ResponseEntity.ok(recordService.getAllRecords());
     }
 
-    @PutMapping("/{price}/{description}/{manufacturingDate}/{name}/{genreId}/{companyId}/{date}/{artistId}/{recordLabelId}")
-    public ResponseEntity<String> putRecord(
-            @PathVariable int price,
-            @PathVariable String description,
-            @PathVariable Date manufacturingDate,
-            @PathVariable String name,
-            @PathVariable int genreId,
-            @PathVariable int companyId,
-            @PathVariable Date date,
-            @PathVariable int artistId,
-            @PathVariable int recordLabelId
-    )
+    @PutMapping()
+    public ResponseEntity<String> putRecord(@RequestBody CreateRecord createRecord)
     {
-        recordService.putRecord(price, description, manufacturingDate, name, genreId, companyId, date,artistId,recordLabelId);
+        recordService.putRecord(createRecord.price(), createRecord.description(), createRecord.manufacturingDate(), createRecord.name(), createRecord.genreId(), createRecord.companyId(), createRecord.date(),createRecord.artistId(),createRecord.recordLabelId());
         return ResponseEntity.ok("da");
     }
 
-    @PostMapping("/{id}/{name}")
-    public ResponseEntity<String> updateRecord(@PathVariable int id,@PathVariable String name){
-        recordService.updateInstrumentName(id,name);
+    @PostMapping()
+    public ResponseEntity<String> updateRecord(@RequestBody UpdateItemName updateItemName){
+        recordService.updateInstrumentName(updateItemName.id(),updateItemName.name());
         return ResponseEntity.ok("da");
     }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Instrument } from 'src/app/domains/Instrument';
 import { DataServiceService } from 'src/services/data-service.service';
 import { Record } from 'src/app/domains/Record';
+import { Item } from 'src/app/domains/Item';
 
 @Component({
   selector: 'app-main',
@@ -11,6 +12,7 @@ import { Record } from 'src/app/domains/Record';
 export class MainComponent implements OnInit {
   instruments: Instrument[] | undefined;
   records: Record[] | undefined;
+  mostSoldItem!: Item;
   instumentFlag: boolean = true;
   recordsFlag: boolean = true;
 
@@ -24,6 +26,9 @@ export class MainComponent implements OnInit {
     });
     this.dataService.fetchRecords().subscribe((data) => {
       this.records = data;
+    });
+    this.dataService.fetchMostSoldItem().subscribe((data) => {
+      this.mostSoldItem = data;
     });
   }
 

@@ -4,7 +4,7 @@ export interface Instrument {
   company: string;
   inStock: boolean;
   price: number;
-  date: string;
+  date: Date;
   genre: string;
   discrimination: string;
 }

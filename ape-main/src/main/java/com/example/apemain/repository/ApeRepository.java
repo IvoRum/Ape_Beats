@@ -137,9 +137,9 @@ public class ApeRepository {
     }
 
     public MostSoldItem getMostSoldItem() throws Exception {
-        String sql= "SELECT count(sale_item.item) as count_,i.name from sale_item " +
-                "join public.item i on sale_item.item=i.item_id " +
-                "group by i.name " +
+        String sql= "SELECT count(sale_item.item) as count_,i.name, i.discrimination as img_url from sale_item " +
+                "    join public.item i on sale_item.item=i.item_id " +
+                "group by i.name, i.discrimination " +
                 "order by count_ desc " +
                 "LIMIT 1;";
         Connection connection = DataSourceUtils.getConnection(dataSource);
@@ -149,8 +149,9 @@ public class ApeRepository {
             if (resultSet.next()) {
                 String name = resultSet.getString("name");
                 int count = resultSet.getInt("count_");
+                String des = resultSet.getString("img_url");
 
-                return new MostSoldItem(count,name);
+                return new MostSoldItem(count,name,des);
             }else {
                 throw new SQLException();
             }
@@ -207,15 +208,20 @@ public class ApeRepository {
     public void insertInstrument(int price,String description,Date manufacturingDate,String name,int genreId,int companyId,int type,Date date) throws Exception {
 
         String sql= "INSERT INTO Instrument(Instrument_id,item_id,type,time_stamp) " +
-                "VALUES (?,?,?,?)";
+                "VALUES (?,?,?,?); " +
+                "insert into instrument_istrument_type(instrument_id, instrument_type_id) " +
+                "VALUES(?,?);";
         //"VALUES (4,7,1,'2023-10-28')";
         Connection connection = DataSourceUtils.getConnection(dataSource);
         insertItem(price, description, manufacturingDate, name, genreId, companyId, date,connection);
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setInt(1, RepositoryIdGetter.getLastIdInstrument(connection)+1);
+            int instrumentID=RepositoryIdGetter.getLastIdInstrument(connection)+1;
+            statement.setInt(1,instrumentID );
             statement.setInt(2, RepositoryIdGetter.getLastIdItem(connection));
             statement.setInt(3, type);
             statement.setDate(4, date);
+            statement.setInt(5, instrumentID);
+            statement.setInt(6, type);
 
             ResultSet resultSet = statement.executeQuery();
         }
@@ -262,7 +268,7 @@ public class ApeRepository {
             statement.setInt(9, companyId);
             statement.setDate(10, date);
 
-            ResultSet resultSet = statement.executeQuery();
+            statement.executeQuery();
         }catch (Exception e){
             e.printStackTrace();
 

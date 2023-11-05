@@ -41,3 +41,17 @@
 .fitured-blog {
   max-width: 10%;
 }
+
+.card-img {
+  max-width: 100%;
+}
+
+.card-img-mostsold {
+  max-width: 10%;
+  justify-items: center;
+}
+
+.da {
+  padding-left: 2em;
+  padding-right: 5em;
+}
