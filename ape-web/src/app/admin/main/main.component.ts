@@ -106,7 +106,7 @@ export class MainComponent implements OnInit {
     if (this.formrecord.valid) {
       // Make the PUT request to update the data using the values in this.form.value
       this.dataService
-        .updateItemName(this.formCreateInstument.value)
+        .updateItemName(this.formrecord.value)
         .subscribe((response) => {
           // Handle the response
         });
@@ -114,7 +114,7 @@ export class MainComponent implements OnInit {
   }
 
   onSubmitNewRecord() {
-    if (this.formrecord.valid) {
+    if (this.formCreateRecord.valid) {
       // Make the PUT request to update the data using the values in this.form.value
       this.dataService
         .newrecord(this.formCreateRecord.value)
