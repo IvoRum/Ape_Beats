@@ -122,7 +122,7 @@ INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,desc
 values (1,TRUE,32,'Fender_Squier_affinity_Series_Jazz_Bass.jpg','2013-10-28','Fender_Squier_Classic','Some diescriopton',1,1,'2023-10-28');
 
 INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
-values (2,TRUE,54,'Fender_Squier_Affinity.jpg','2013-10-28','Fender_Squier_Affinity','Some diescriopton',3,1,'2023-10-28');
+values (2,TRUE,54,'Fender_Squier_Affinity.jpg','2013-10-28','Fender_Squier_Affinity','Some diescriopton',1,1,'2023-10-28');
 
 INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
 values (3,TRUE,65,'Fender_Squier_Bass.jpg','2013-10-28','Yamaha_YAS','Some diescriopton',2,3,'2023-10-28');
@@ -274,6 +274,9 @@ values (9,4,134,TRUE,'2023-10-28');
 
 INSERT INTO Sale(Number,ape_user,amount,fulfill,time_stamp)
 values (10,4,543,TRUE,'2023-10-28');
+
+INSERT INTO Sale(Number,ape_user,amount,fulfill,time_stamp)
+values (12,5,543,TRUE,'2023-10-28');
 /*
   Creating 3 Sale_item
 */
