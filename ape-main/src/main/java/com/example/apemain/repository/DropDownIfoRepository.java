@@ -8,15 +8,18 @@ import org.springframework.stereotype.Repository;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 @AllArgsConstructor
 public class DropDownIfoRepository {
     private final DataSource dataSource;
-    public List<String> getAllIstrumentTypes() throws Exception {
+    public List<String> getAllIstrumentTypes(Connection connection) throws Exception {
         String sql= "SELECT instrument_type_name from instrument_type;";
-        Connection connection = DataSourceUtils.getConnection(dataSource);
+        //Connection connection = DataSourceUtils.getConnection(dataSource);
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             List<String> instrumentList=new ArrayList<>();
@@ -33,9 +36,9 @@ public class DropDownIfoRepository {
         }
     }
 
-    public List<String> getRecordGenres() throws Exception {
+    public List<String> getRecordGenres(Connection connection) throws Exception {
         String sql= "SELECT name from genre;";
-        Connection connection = DataSourceUtils.getConnection(dataSource);
+        //Connection connection = DataSourceUtils.getConnection(dataSource);
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             List<String> instrumentList=new ArrayList<>();
@@ -52,9 +55,9 @@ public class DropDownIfoRepository {
         }
     }
 
-    public List<String> getCompanyNames() throws Exception {
+    public List<String> getCompanyNames(Connection connection) throws Exception {
         String sql= "select company.name from company;";
-        Connection connection = DataSourceUtils.getConnection(dataSource);
+        //Connection connection = DataSourceUtils.getConnection(dataSource);
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             List<String> companies=new ArrayList<>();
@@ -71,9 +74,9 @@ public class DropDownIfoRepository {
         }
     }
 
-    public List<String> getArtistNames() throws Exception {
+    public List<String> getArtistNames(Connection connection) throws Exception {
         String sql= "select artist.name from artist;";
-        Connection connection = DataSourceUtils.getConnection(dataSource);
+        //Connection connection = DataSourceUtils.getConnection(dataSource);
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             List<String> artists=new ArrayList<>();
@@ -90,9 +93,9 @@ public class DropDownIfoRepository {
         }
     }
 
-    public List<String> getRecordLabelNames() throws Exception {
-        String sql= "select rl.name  from record_label rl;";
-        Connection connection = DataSourceUtils.getConnection(dataSource);
+    public List<String> getRecordLabelNames(Connection connection) throws Exception {
+        String sql= "select record_label.name  from record_label;";
+        //Connection connection = DataSourceUtils.getConnection(dataSource);
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             List<String> artists=new ArrayList<>();
@@ -109,10 +112,10 @@ public class DropDownIfoRepository {
         }
     }
 
-    public List<String> getInstrumentNames() throws Exception {
+    public List<String> getInstrumentNames(Connection connection) throws Exception {
         String sql= "select i.name  from instrument i2 " +
                     "join public.item i on i.item_id = i2.item_id ;";
-        Connection connection = DataSourceUtils.getConnection(dataSource);
+        //Connection connection = DataSourceUtils.getConnection(dataSource);
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             List<String> instruments=new ArrayList<>();
@@ -129,15 +132,14 @@ public class DropDownIfoRepository {
         }
     }
 
-    public List<String> getRecordNames() throws Exception {
+    public List<String> getRecordNames(Connection connection) throws Exception {
         String sql= "select i.name  from record r " +
                     "join public.item i on i.item_id = r.item_id ;";
-        Connection connection = DataSourceUtils.getConnection(dataSource);
+        //Connection connection = DataSourceUtils.getConnection(dataSource);
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             List<String> records=new ArrayList<>();
             ResultSet resultSet = statement.executeQuery();
-
             while (resultSet.next()) {
                 String name = resultSet.getString("name");
                 records.add(name);

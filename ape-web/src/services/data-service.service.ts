@@ -37,6 +37,22 @@ export class DataServiceService {
     );
   }
 
+  fetchGenreInformation(): Observable<string[]> {
+    return this.http.get<string[]>(
+      `http://localhost:8080/api/v1/static/genres`
+    );
+  }
+
+  fetchTypeInformation(): Observable<string[]> {
+    return this.http.get<string[]>(`http://localhost:8080/api/v1/static/types`);
+  }
+
+  fetchCompanyInformation(): Observable<string[]> {
+    return this.http.get<string[]>(
+      `http://localhost:8080/api/v1/static/company`
+    );
+  }
+
   fetchArtistByName(name: string): Observable<Artist> {
     return this.http.get<Artist>(`http://localhost:8080/api/v1/artist/` + name);
   }
