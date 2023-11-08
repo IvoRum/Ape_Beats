@@ -144,3 +144,10 @@ select artist.name from artist;
 select company.name from company;
 SELECT name from genre;
 SELECT instrument_type_name from instrument_type;
+select rl."name"  from record_label rl;
+/* All record names*/
+select i."name"  from record r
+join public.item i on i.item_id = r.item_id ;
+/* All instrument names*/
+select i."name"  from instrument i2 
+join public.item i on i.item_id = i2.item_id ;
