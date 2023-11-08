@@ -1,16 +1,14 @@
 package com.example.apemain.repository;
 
 import com.example.apemain.domains.Instrument;
+import com.example.apemain.domains.ItemIformation;
 import lombok.AllArgsConstructor;
 import org.springframework.jdbc.datasource.DataSourceUtils;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Repository
@@ -112,37 +110,41 @@ public class DropDownIfoRepository {
         }
     }
 
-    public List<String> getInstrumentNames(Connection connection) throws Exception {
-        String sql= "select i.name  from instrument i2 " +
+    public List<ItemIformation> getInstrumentNames(Connection connection) throws Exception {
+        String sql= "select i.name, i.item_id  from instrument i2 " +
                     "join public.item i on i.item_id = i2.item_id ;";
         //Connection connection = DataSourceUtils.getConnection(dataSource);
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            List<String> instruments=new ArrayList<>();
+            List<ItemIformation> records=new ArrayList<>();
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
                 String name = resultSet.getString("name");
-                instruments.add(name);
+                Integer id= resultSet.getInt("item_id");
+
+                records.add(new ItemIformation(id,name));
             }
-            return List.copyOf(instruments);
+            return List.copyOf(records);
         } catch (SQLException e) {
             e.printStackTrace();
             throw new Exception();
         }
     }
 
-    public List<String> getRecordNames(Connection connection) throws Exception {
-        String sql= "select i.name  from record r " +
+    public List<ItemIformation> getRecordNames(Connection connection) throws Exception {
+        String sql= "select i.name, i.item_id  from record r " +
                     "join public.item i on i.item_id = r.item_id ;";
         //Connection connection = DataSourceUtils.getConnection(dataSource);
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            List<String> records=new ArrayList<>();
+            List<ItemIformation> records=new ArrayList<>();
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 String name = resultSet.getString("name");
-                records.add(name);
+                Integer id= resultSet.getInt("item_id");
+
+                records.add(new ItemIformation(id,name));
             }
             return List.copyOf(records);
         } catch (SQLException e) {

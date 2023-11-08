@@ -1,5 +1,6 @@
 package com.example.apemain.service;
 
+import com.example.apemain.domains.ItemIformation;
 import com.example.apemain.domains.StaticTableInfomation;
 import com.example.apemain.repository.ApeRepository;
 import com.example.apemain.repository.DropDownIfoRepository;
@@ -11,7 +12,9 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @AllArgsConstructor
@@ -36,8 +39,8 @@ public class ItemService {
         List<String> companyiesNames=new ArrayList<>();
         List<String> artistsNames=new ArrayList<>();
         List<String> recordLabelList=new ArrayList<>();
-        List<String> recordNames=new ArrayList<>();
-        List<String> instrumentNames=new ArrayList<>();
+        List<ItemIformation> recordNames=new ArrayList<>();
+        List<ItemIformation> instrumentNames=new ArrayList<>();
         try{
             artistsNames=downIfoRepository.getArtistNames(connection);
         } catch (Exception e) {

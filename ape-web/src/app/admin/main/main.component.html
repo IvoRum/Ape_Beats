@@ -89,13 +89,13 @@
         </mat-form-field>
         <mat-form-field>
           <mat-label>Choose a date</mat-label>
-          <input matInput [matDatepicker]="picker" formControlName="date" />
+          <input matInput [matDatepicker]="picker123" formControlName="date" />
           <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle
             matIconSuffix
-            [for]="picker"
+            [for]="picker123"
           ></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
+          <mat-datepicker #picker123></mat-datepicker>
         </mat-form-field>
         <mat-form-field>
           <mat-label>Company</mat-label>
@@ -118,8 +118,21 @@
       </form>
       <form [formGroup]="forminstument" (ngSubmit)="onSubmitNewIstrumentName()">
         Update instrument<br />
-        <input type="text" formControlName="id" /><br />
-        <input type="text" formControlName="name" /><br />
+        <mat-form-field>
+          <mat-label>Instrument</mat-label>
+          <mat-select formControlName="id">
+            <div
+              *ngFor="let instrument of this.staticInformation.instrumentNames"
+            >
+              <mat-option value="instrument.id">{{
+                instrument.name
+              }}</mat-option>
+            </div>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="text" formControlName="name" />
+        </mat-form-field>
         <button mat-raised-button color="primary" type="submit">Update</button
         ><br />
       </form>
@@ -176,8 +189,18 @@
           <input matInput type="text" formControlName="description" /> <br />
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="date" formControlName="manufacturingDate" />
-          <br />
+          <mat-label>Manifactory date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="pickerRecordMan"
+            formControlName="manufacturingDate"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="pickerRecordMan"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #pickerRecordMan></mat-datepicker>
         </mat-form-field>
         <mat-form-field>
           <input matInput type="text" formControlName="name" /> <br />
@@ -199,7 +222,14 @@
           </mat-select>
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="date" formControlName="date" /> <br />
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker321" formControlName="date" />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker321"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker321></mat-datepicker>
         </mat-form-field>
         <mat-form-field>
           <mat-label>Artiest</mat-label>
@@ -226,7 +256,7 @@
           <mat-label>Record</mat-label>
           <mat-select formControlName="id">
             <div *ngFor="let record of this.staticInformation.recordNames">
-              <mat-option value="record.id">{{ record }}</mat-option>
+              <mat-option value="record.id">{{ record.name }}</mat-option>
             </div>
           </mat-select>
         </mat-form-field>
@@ -270,9 +300,26 @@
       <h1>Insert new Artist</h1>
       <form [formGroup]="formCreateArtist" (ngSubmit)="onSubmitNewArtist()">
         Insert Record<br />
-        <input type="text" formControlName="artistName" /> <br />
-        <input type="text" formControlName="recordLabelID" /> <br />
-        <input type="date" formControlName="date" /> <br />
+        <mat-form-field>
+          <input matInput type="text" formControlName="artistName" /> <br />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="text" formControlName="recordLabelID" /> <br />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Choose a date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="pickerArtist"
+            formControlName="date"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="pickerArtist"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #pickerArtist></mat-datepicker>
+        </mat-form-field>
         <button mat-raised-button color="primary" type="submit">Insert</button>
       </form>
     </div>
