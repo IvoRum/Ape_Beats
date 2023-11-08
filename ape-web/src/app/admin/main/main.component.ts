@@ -5,6 +5,7 @@ import { DataServiceService } from 'src/services/data-service.service';
 import { Record } from 'src/app/domains/Record';
 import { Artist } from 'src/app/domains/Artist';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { StatitcInfomation } from 'src/app/domains/StatitcInfomation';
 
 @Component({
   selector: 'app-main',
@@ -16,6 +17,8 @@ export class MainComponent implements OnInit {
   records!: Record[];
   mostSoldItem!: Item;
   artist!: Artist[];
+  staticInformation!: StatitcInfomation;
+
   displayedColumns: string[] = [
     'type',
     'name',
@@ -31,6 +34,7 @@ export class MainComponent implements OnInit {
     'recordLableName',
   ];
   displayedColumns2: string[] = ['name', 'recordLabel'];
+
   forminstument: FormGroup;
   formCreateInstument: FormGroup;
   formrecord: FormGroup;
@@ -146,6 +150,9 @@ export class MainComponent implements OnInit {
     });
     this.dataService.fetchArtists().subscribe((data) => {
       this.artist = data;
+    });
+    this.dataService.fetchStaticInformation().subscribe((data) => {
+      this.staticInformation = data;
     });
   }
 }

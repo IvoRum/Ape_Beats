@@ -1,9 +1,7 @@
 package com.example.apemain.controller;
 
-import com.example.apemain.domains.MostSoldItem;
 import com.example.apemain.domains.StaticTableInfomation;
 import com.example.apemain.service.ItemService;
-import com.example.apemain.service.SaleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

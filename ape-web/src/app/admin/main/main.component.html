@@ -56,16 +56,51 @@
         (ngSubmit)="onSubmitNewIstrument()"
       >
         Create instrument<br />
-        <input type="text" formControlName="price" /><br />
-        <input type="text" formControlName="genraId" /><br />
-        <input type="text" formControlName="description" /><br />
-        <input type="date" formControlName="manufacturingDate" /><br />
-        <input type="text" formControlName="name" /><br />
-        <input type="text" formControlName="genreId" /><br />
-        <input type="text" formControlName="companyId" /><br />
-        <input type="date" formControlName="date" /><br />
-        <input type="text" formControlName="type" /><br />
-        <button type="submit">Create</button><br />
+        <mat-form-field>
+          <input matInput type="text" formControlName="price" />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="text" formControlName="genraId" />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="text" formControlName="description" />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            formControlName="manufacturingDate"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="text" formControlName="name" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Select</mat-label>
+          <mat-select>
+            <div *ngFor="let genre of this.staticInformation.genresNames">
+              <mat-option value="genre.id">{{ genre }}</mat-option>
+            </div>
+          </mat-select>
+        </mat-form-field>
+        <input matInput type="text" formControlName="genreId" />
+        <mat-form-field>
+          <input matInput type="text" formControlName="companyId" />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="date" formControlName="date" />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="text" formControlName="type" /> </mat-form-field
+        ><br />
+        <button mat-raised-button color="primary" type="submit">Create</button
+        ><br />
       </form>
       <form [formGroup]="forminstument" (ngSubmit)="onSubmitNewIstrumentName()">
         Update instrument<br />

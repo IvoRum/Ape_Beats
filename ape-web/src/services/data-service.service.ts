@@ -5,6 +5,7 @@ import { Instrument } from 'src/app/domains/Instrument';
 import { Record } from 'src/app/domains/Record';
 import { Item } from 'src/app/domains/Item';
 import { Artist } from 'src/app/domains/Artist';
+import { StatitcInfomation } from 'src/app/domains/StatitcInfomation';
 
 @Injectable({
   providedIn: 'root',
@@ -27,6 +28,12 @@ export class DataServiceService {
   fetchMostSoldItem(): Observable<Item> {
     return this.http.get<Item>(
       `http://localhost:8080/api/v1/sale/most_sold_item`
+    );
+  }
+
+  fetchStaticInformation(): Observable<StatitcInfomation> {
+    return this.http.get<StatitcInfomation>(
+      `http://localhost:8080/api/v1/static`
     );
   }
 
