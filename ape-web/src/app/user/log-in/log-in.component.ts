@@ -15,14 +15,14 @@ export class LogInComponent {
   ) {
     this.logInForm = this.formBuilder.group({
       email: [''],
-      passwod: [''],
+      pass: [''],
     });
   }
 
   onLogIn() {
     if (this.logInForm.valid) {
-      this.dataService.newArtist(this.logInForm.value).subscribe((response) => {
-        // Handle the response
+      this.dataService.logIn(this.logInForm.value).subscribe((response) => {
+        localStorage.setItem('logedId', response.toString());
       });
     }
   }

@@ -76,4 +76,10 @@ export class DataServiceService {
   newArtist(data: any) {
     return this.http.put('http://localhost:8080/api/v1/artist', data);
   }
+
+  logIn(data: any) {
+    return this.http.get(
+      'http://localhost:8080/api/v1/user/' + data.email + '/' + data.pass
+    );
+  }
 }
