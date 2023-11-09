@@ -83,7 +83,7 @@
           <mat-label>Genre</mat-label>
           <mat-select formControlName="genreId">
             <div *ngFor="let genre of this.staticInformation.genresNames">
-              <mat-option value="genre.id">{{ genre }}</mat-option>
+              <mat-option value="{{ genre.id }}">{{ genre.name }}</mat-option>
             </div>
           </mat-select>
         </mat-form-field>
@@ -101,7 +101,9 @@
           <mat-label>Company</mat-label>
           <mat-select formControlName="companyId">
             <div *ngFor="let company of this.staticInformation.companyiesNames">
-              <mat-option value="company.id">{{ company }}</mat-option>
+              <mat-option value="{{ company.id }}">{{
+                company.name
+              }}</mat-option>
             </div>
           </mat-select>
         </mat-form-field>
@@ -109,7 +111,7 @@
           <mat-label>Instrument Type</mat-label>
           <mat-select formControlName="type">
             <div *ngFor="let type of this.staticInformation.typesNames">
-              <mat-option value="type.id">{{ type }}</mat-option>
+              <mat-option value="{{ type.id }}">{{ type.name }}</mat-option>
             </div>
           </mat-select>
         </mat-form-field>
@@ -124,7 +126,7 @@
             <div
               *ngFor="let instrument of this.staticInformation.instrumentNames"
             >
-              <mat-option value="instrument.id">{{
+              <mat-option value="{{ instrument.id }}">{{
                 instrument.name
               }}</mat-option>
             </div>
@@ -209,7 +211,7 @@
           <mat-label>Genre</mat-label>
           <mat-select formControlName="genreId">
             <div *ngFor="let genre of this.staticInformation.genresNames">
-              <mat-option value="genre.id">{{ genre }}</mat-option>
+              <mat-option value="{{ genre.id }}">{{ genre.name }}</mat-option>
             </div>
           </mat-select>
         </mat-form-field>
@@ -217,7 +219,9 @@
           <mat-label>Companys</mat-label>
           <mat-select formControlName="companyId">
             <div *ngFor="let company of this.staticInformation.companyiesNames">
-              <mat-option value="company.id">{{ company }}</mat-option>
+              <mat-option value="{{ company.id }}">{{
+                company.name
+              }}</mat-option>
             </div>
           </mat-select>
         </mat-form-field>
@@ -235,7 +239,7 @@
           <mat-label>Artiest</mat-label>
           <mat-select formControlName="artistId">
             <div *ngFor="let artist of this.staticInformation.artistsNames">
-              <mat-option value="artist.id">{{ artist }}</mat-option>
+              <mat-option value="{{ artist.id }}">{{ artist.name }}</mat-option>
             </div>
           </mat-select>
         </mat-form-field>
@@ -243,7 +247,7 @@
           <mat-label>Record labes</mat-label>
           <mat-select formControlName="artistId">
             <div *ngFor="let record of this.staticInformation.recordLabelList">
-              <mat-option value="record.id">{{ record }}</mat-option>
+              <mat-option value="record.id">{{ record.name }}</mat-option>
             </div>
           </mat-select>
         </mat-form-field>

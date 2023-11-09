@@ -31,7 +31,16 @@ public class InstrumentController {
     @PutMapping()
     public ResponseEntity<String> putInstrument(@RequestBody CreateInstrument createInstrument)
     {
-        instrumentService.putInstrument(createInstrument.price(), createInstrument.description(), createInstrument.manufacturingDate(), createInstrument.name(), createInstrument.genreId(), createInstrument.companyId(), createInstrument.type(), createInstrument.date());
+        instrumentService.putInstrument(
+                createInstrument.price(),
+                createInstrument.description(),
+                createInstrument.manufacturingDate(),
+                createInstrument.name(),
+                createInstrument.genreId(),
+                createInstrument.companyId(),
+                createInstrument.type(),
+                createInstrument.date()
+        );
         return ResponseEntity.ok("da");
     }
 

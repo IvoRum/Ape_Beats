@@ -1,6 +1,6 @@
 package com.example.apemain.service;
 
-import com.example.apemain.domains.ItemIformation;
+import com.example.apemain.domains.IdToNameInfomation;
 import com.example.apemain.domains.StaticTableInfomation;
 import com.example.apemain.repository.ApeRepository;
 import com.example.apemain.repository.DropDownIfoRepository;
@@ -12,9 +12,7 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 @AllArgsConstructor
@@ -34,13 +32,13 @@ public class ItemService {
     public StaticTableInfomation getStaticTableInformation(){
 
         Connection connection = DataSourceUtils.getConnection(dataSource);
-        List<String> genresNames=new ArrayList<>();
-        List<String> typesNames=new ArrayList<>();
-        List<String> companyiesNames=new ArrayList<>();
-        List<String> artistsNames=new ArrayList<>();
-        List<String> recordLabelList=new ArrayList<>();
-        List<ItemIformation> recordNames=new ArrayList<>();
-        List<ItemIformation> instrumentNames=new ArrayList<>();
+        List<IdToNameInfomation> genresNames=new ArrayList<>();
+        List<IdToNameInfomation> typesNames=new ArrayList<>();
+        List<IdToNameInfomation> companyiesNames=new ArrayList<>();
+        List<IdToNameInfomation> artistsNames=new ArrayList<>();
+        List<IdToNameInfomation> recordLabelList=new ArrayList<>();
+        List<IdToNameInfomation> recordNames=new ArrayList<>();
+        List<IdToNameInfomation> instrumentNames=new ArrayList<>();
         try{
             artistsNames=downIfoRepository.getArtistNames(connection);
         } catch (Exception e) {

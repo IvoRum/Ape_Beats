@@ -68,11 +68,10 @@ export class MainComponent implements OnInit {
     });
     this.formCreateInstument = this.formBuilder.group({
       price: ['price'],
-      genraId: ['genraId'],
+      genreId: ['genreId'],
       description: ['description'],
       manufacturingDate: ['manufacturingDate'],
       name: ['name'],
-      genreId: ['genreId'],
       companyId: ['companyId'],
       date: ['date'],
       type: ['type'],

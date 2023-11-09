@@ -4,11 +4,11 @@ interface InnterItem {
 }
 
 export interface StatitcInfomation {
-  genresNames: string[];
-  typesNames: string[];
-  companyiesNames: string[];
-  artistsNames: string[];
-  recordLabelList: string[];
+  genresNames: InnterItem[];
+  typesNames: InnterItem[];
+  companyiesNames: InnterItem[];
+  artistsNames: InnterItem[];
+  recordLabelList: InnterItem[];
   recordNames: InnterItem[];
   instrumentNames: InnterItem[];
 }
