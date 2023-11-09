@@ -1,3 +1,15 @@
-<h1>Records</h1>
-<br />
-<app-item [projectList]="this.records"></app-item>
+<div
+  class="container"
+  fxLayout="row wrap"
+  fxLayoutAlign="center"
+  fxLayoutGap.xs="0"
+  class="all-instrument-holder"
+>
+  <div fxFlex="100%" fxLayoutAlign="center" class="banner-record">
+    <h1 class="padder">Records</h1>
+  </div>
+
+  <div fxFlex="100%" fxLayoutAlign="center">
+    <app-item [projectList]="this.records"></app-item>
+  </div>
+</div>

@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class ItemComponent {
   @Input() projectList: any[] | undefined;
+  isLoged = localStorage.getItem('logedId');
 }

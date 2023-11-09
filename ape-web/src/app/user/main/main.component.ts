@@ -45,4 +45,7 @@ export class MainComponent implements OnInit {
   goRecord() {
     this.router.navigate(['/record']);
   }
+  goProfle() {
+    this.router.navigate(['/profile']);
+  }
 }

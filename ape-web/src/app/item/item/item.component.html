@@ -14,7 +14,7 @@
     *ngFor="let card of projectList"
   >
     <mat-card>
-      <mat-card-header *ngIf="card.name">
+      <mat-card-header class="text-oneline" *ngIf="card.name">
         <mat-card-title>{{ card.name }}</mat-card-title>
       </mat-card-header>
       <img
@@ -22,6 +22,13 @@
         mat-card-image
         src="assets\\{{ card.discrimination }}"
       />
+      <div *ngIf="card.type">Type:{{ card.type }}</div>
+      <div *ngIf="card.price">Price: {{ card.price }}$</div>
+      <div *ngIf="card.genre">Genre: {{ card.genre }}</div>
+      <div *ngIf="card.artistName">Artidt: {{ card.artistName }}</div>
+      <div *ngIf="isLoged">
+        <button mat-icon-button><mat-icon>add_shopping_cart</mat-icon></button>
+      </div>
     </mat-card>
   </div>
 </div>

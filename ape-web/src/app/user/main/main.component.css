@@ -11,12 +11,71 @@
   overflow: hidden;
 }
 
+.banner-instruments {
+  background-image: url("local_assets\instruments.jpg");
+  background-color: #0000003b;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  font-family: "Agbalumo";
+  font-size: 70px;
+  color: white;
+  padding-left: 10%;
+  padding-right: 10%;
+  margin-top: 5%;
+}
+
+.banner-record {
+  background-image: url("local_assets\bannerRecord.jpg");
+  background-color: #0000003b;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  font-family: "Agbalumo";
+  font-size: 60px;
+  color: white;
+  padding-left: 10%;
+  padding-right: 10%;
+  margin-top: 10%;
+}
+
+.banner-most-sold-item {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding-top: 1em;
+  font-family: "Agbalumo";
+  font-size: 70px;
+}
+
+.card-img {
+  max-width: 100%;
+  max-height: 15em;
+}
+
+.padder {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.spacer {
+  padding-top: 5em;
+}
+
 .banner_title {
   font-family: "Agbalumo";
   font-size: 124px;
-  align-items: center;
-  text-justify: center;
-  width: 50%;
+  padding-left: 35%;
+  width: 100%;
   margin: auto;
   color: white;
 }
@@ -24,8 +83,6 @@
 .buttons {
   align-items: center;
   text-justify: center;
-  width: 50%;
-  margin: auto;
   padding-top: 2em;
 }
 
@@ -47,11 +104,27 @@
 }
 
 .card-img-mostsold {
-  max-width: 10%;
+  padding-top: 10px;
+  max-width: 15%;
   justify-items: center;
 }
 
 .da {
   padding-left: 2em;
   padding-right: 5em;
+}
+
+.all-instrument-holder {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.red-title {
+  background-color: rgb(238, 106, 106);
+}
+
+.text-oneline ::ng-deep * {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }

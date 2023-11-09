@@ -1,0 +1,16 @@
+.banner-record {
+  background-image: url("local_assets\bannerRecord.jpg");
+  background-color: #0000003b;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  font-family: "Agbalumo";
+  font-size: 60px;
+  color: white;
+  padding-left: 10%;
+  padding-right: 10%;
+  margin-top: 10%;
+}

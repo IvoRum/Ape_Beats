@@ -6,6 +6,8 @@ import { ItemModule } from '../item/item.module';
 import { ArtistsComponent } from './artists/artists.component';
 import { IstrumentsComponent } from './istruments/istruments.component';
 import { RecordsComponent } from './records/records.component';
+import { ProfileComponent } from './profile/profile.component';
+import { LogInComponent } from './log-in/log-in.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,8 @@ import { RecordsComponent } from './records/records.component';
     ArtistsComponent,
     IstrumentsComponent,
     RecordsComponent,
+    ProfileComponent,
+    LogInComponent,
   ],
   imports: [CommonModule, MaterialModule, ItemModule],
 })

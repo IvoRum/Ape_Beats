@@ -2,6 +2,12 @@
   max-width: 100%;
 }
 
-.da {
-  padding-left: 20px;
+mat-card-header {
+  display: flow-root;
+}
+
+.text-oneline ::ng-deep * {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
