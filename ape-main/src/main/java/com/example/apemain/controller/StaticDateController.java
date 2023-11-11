@@ -1,14 +1,12 @@
 package com.example.apemain.controller;
 
-import com.example.apemain.domains.StaticTableInfomation;
+import com.example.apemain.domains.returns.StaticTableInfomation;
 import com.example.apemain.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.List;
 
 @Controller
 @RequiredArgsConstructor

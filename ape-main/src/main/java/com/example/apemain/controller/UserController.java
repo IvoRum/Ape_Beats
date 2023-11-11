@@ -1,5 +1,6 @@
 package com.example.apemain.controller;
 
+import com.example.apemain.domains.UserProfileDate;
 import com.example.apemain.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,5 +19,10 @@ public class UserController {
     @GetMapping("/{email}/{pass}")
     public ResponseEntity<Integer> isUserLogdIn(@PathVariable String email, @PathVariable String pass){
         return ResponseEntity.ok(userService.isLogIn(email,pass));
+    }
+
+    @GetMapping("/{userId}")
+    public ResponseEntity<UserProfileDate> getUserDate(@PathVariable int userId){
+        return ResponseEntity.ok(userService.getUserDate(userId));
     }
 }

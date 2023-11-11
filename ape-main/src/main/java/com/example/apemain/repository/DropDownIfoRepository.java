@@ -1,6 +1,6 @@
 package com.example.apemain.repository;
 
-import com.example.apemain.domains.IdToNameInfomation;
+import com.example.apemain.domains.returns.IdToNameInfomation;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 

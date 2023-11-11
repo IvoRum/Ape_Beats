@@ -1,14 +1,13 @@
 package com.example.apemain.controller;
 
 import com.example.apemain.domains.Artist;
-import com.example.apemain.domains.CreateArtist;
+import com.example.apemain.domains.create.CreateArtist;
 import com.example.apemain.service.ArtistService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
 import java.util.List;
 @Controller
 @RequiredArgsConstructor

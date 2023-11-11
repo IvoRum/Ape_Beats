@@ -1,15 +1,14 @@
 package com.example.apemain.controller;
 
-import com.example.apemain.domains.CreateRecord;
+import com.example.apemain.domains.create.CreateRecord;
 import com.example.apemain.domains.Record;
-import com.example.apemain.domains.UpdateItemName;
+import com.example.apemain.domains.update.UpdateItemName;
 import com.example.apemain.service.RecordService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
 import java.util.List;
 
 @Controller

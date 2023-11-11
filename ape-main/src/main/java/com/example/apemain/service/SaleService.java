@@ -1,6 +1,6 @@
 package com.example.apemain.service;
 
-import com.example.apemain.domains.MostSoldItem;
+import com.example.apemain.domains.returns.MostSoldItem;
 import com.example.apemain.repository.ApeRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;

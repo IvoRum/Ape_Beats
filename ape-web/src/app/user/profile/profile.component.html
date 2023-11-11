@@ -1,4 +1,22 @@
-<div *ngIf="isLoged != '0'">YOR loged IN!!!</div>
+<div
+  fxLayout="row wrap"
+  fxLayoutAlign="center"
+  fxLayoutGap="10px"
+  fxLayoutGap.xs="0"
+  class="banner"
+  *ngIf="isLoged != '0'"
+>
+  YOR loged IN!!!
+  <div>
+    {{ this.userDate.email }}
+  </div>
+  <div>
+    All purcheses
+    <div>Items</div>
+  </div>
+  <br />
+  <div *ngIf="userDate.status == 1">Active profile</div>
+</div>
 <div *ngIf="!isLoged">
   <app-log-in></app-log-in>
 </div>

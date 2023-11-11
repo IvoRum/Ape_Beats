@@ -1,4 +1,6 @@
-package com.example.apemain.domains;
+package com.example.apemain.domains.returns;
+
+import com.example.apemain.domains.returns.IdToNameInfomation;
 
 import java.util.List;
 

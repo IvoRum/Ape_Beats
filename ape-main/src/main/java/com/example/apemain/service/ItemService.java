@@ -1,7 +1,7 @@
 package com.example.apemain.service;
 
-import com.example.apemain.domains.IdToNameInfomation;
-import com.example.apemain.domains.StaticTableInfomation;
+import com.example.apemain.domains.returns.IdToNameInfomation;
+import com.example.apemain.domains.returns.StaticTableInfomation;
 import com.example.apemain.repository.ApeRepository;
 import com.example.apemain.repository.DropDownIfoRepository;
 import lombok.AllArgsConstructor;

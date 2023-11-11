@@ -1,4 +1,4 @@
-package com.example.apemain.domains;
+package com.example.apemain.domains.create;
 
 import java.sql.Date;
 

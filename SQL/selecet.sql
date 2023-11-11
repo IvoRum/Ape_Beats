@@ -151,3 +151,11 @@ join public.item i on i.item_id = r.item_id ;
 /* All instrument names*/
 select i."name"  from instrument i2 
 join public.item i on i.item_id = i2.item_id ;
+
+/*
+    user profile
+*/
+
+SELECT * from ape_user
+join public.client cl on cl.ape_user=ape_user.id
+where ape_user.id=4;

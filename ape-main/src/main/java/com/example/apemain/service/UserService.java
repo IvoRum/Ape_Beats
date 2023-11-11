@@ -1,5 +1,6 @@
 package com.example.apemain.service;
 
+import com.example.apemain.domains.UserProfileDate;
 import com.example.apemain.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -18,5 +19,15 @@ public class UserService {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public UserProfileDate getUserDate(int userId) {
+
+        try {
+            return userRepository.getUser(userId);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }

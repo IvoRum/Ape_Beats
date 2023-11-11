@@ -1,4 +1,4 @@
-package com.example.apemain.domains;
+package com.example.apemain.domains.update;
 
 import org.springframework.web.bind.annotation.PathVariable;
 

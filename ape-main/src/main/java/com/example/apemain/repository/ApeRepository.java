@@ -2,7 +2,7 @@ package com.example.apemain.repository;
 
 import com.example.apemain.domains.Artist;
 import com.example.apemain.domains.Instrument;
-import com.example.apemain.domains.MostSoldItem;
+import com.example.apemain.domains.returns.MostSoldItem;
 import com.example.apemain.domains.Record;
 
 import lombok.RequiredArgsConstructor;
@@ -13,7 +13,6 @@ import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 @Repository
 @RequiredArgsConstructor

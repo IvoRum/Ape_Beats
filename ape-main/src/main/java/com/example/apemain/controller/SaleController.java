@@ -1,6 +1,6 @@
 package com.example.apemain.controller;
 
-import com.example.apemain.domains.MostSoldItem;
+import com.example.apemain.domains.returns.MostSoldItem;
 import com.example.apemain.service.SaleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
