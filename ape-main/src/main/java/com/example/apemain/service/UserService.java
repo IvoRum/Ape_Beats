@@ -1,10 +1,13 @@
 package com.example.apemain.service;
 
 import com.example.apemain.domains.UserProfileDate;
+import com.example.apemain.domains.returns.UserSaleData;
 import com.example.apemain.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @Transactional
@@ -29,5 +32,13 @@ public class UserService {
             throw new RuntimeException(e);
         }
 
+    }
+
+    public List<UserSaleData> getUserSaleDate(int userId) {
+        try {
+            return userRepository.getUserSales(userId);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserDate } from 'src/app/domains/UserDate';
+import { UserSales } from 'src/app/domains/UserSales';
 import { DataServiceService } from 'src/services/data-service.service';
 
 @Component({
@@ -11,16 +12,28 @@ import { DataServiceService } from 'src/services/data-service.service';
 export class ProfileComponent implements OnInit {
   isLoged!: string | number | null;
   userDate!: UserDate;
+  userSales!: UserSales[];
+
+  displayedColumns: string[] = ['number', 'amount', 'fulfilled'];
+
   constructor(
     private dataService: DataServiceService,
     private router: Router
   ) {}
+
   ngOnInit(): void {
     this.isLoged = localStorage.getItem('logedId');
     if (this.isLoged != '0') {
       this.dataService.fetchuserDate(this.isLoged).subscribe((data) => {
         this.userDate = data;
       });
+      this.dataService.fetchUserSales(this.isLoged).subscribe((data) => {
+        this.userSales = data;
+      });
     }
+  }
+
+  logOut() {
+    localStorage.removeItem('logedId');
   }
 }

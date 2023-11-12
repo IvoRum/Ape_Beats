@@ -59,7 +59,12 @@ Limit 1;
 */
 SELECT sale.number, au.email from sale
 join public.ape_user au on au.id = sale.ape_user
-where au.email='hasan@mail.com'
+where au.id=4
+group by au.email, sale.number;
+
+SELECT sale.number , sale.amount, sale.time_stamp, sale.fulfill from sale
+join public.ape_user au on au.id = sale.ape_user
+where au.id=4
 group by au.email, sale.number;
 /*
     Update user status
