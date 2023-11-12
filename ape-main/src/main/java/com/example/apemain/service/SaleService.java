@@ -7,6 +7,8 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -43,6 +45,14 @@ public class SaleService {
             return shpoingCardNumber;
         } catch (Exception e) {
             throw new RuntimeException();
+        }
+    }
+
+    public List<String> getShpoingCartItemsByUserId(final int userID) {
+        try {
+            return shopingRepository.getUsersShopingCartItems(userID);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 }

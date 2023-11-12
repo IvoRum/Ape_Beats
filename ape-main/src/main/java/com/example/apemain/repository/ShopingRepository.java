@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Repository
 @AllArgsConstructor
@@ -85,6 +87,29 @@ public class ShopingRepository {
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public List<String> getUsersShopingCartItems(int userId) throws Exception {
+
+        String sql= "select i.name from sale\n" +
+                "join public.sale_item si on sale.number = si.sale " +
+                "join public.ape_user au on sale.ape_user = au.id " +
+                "               join public.item i on i.item_id = si.item " +
+                "where au.id=? and sale.fulfill=false";
+
+        Connection connection = DataSourceUtils.getConnection(dataSource);
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, userId);
+            ResultSet resultSet =statement.executeQuery();
+            List<String> cartItems=new ArrayList<>();
+            while(resultSet.next()){
+                cartItems.add(resultSet.getString("name"));
+            }
+            return cartItems;
+        }catch (Exception e){
+            throw new Exception();
         }
     }
 }

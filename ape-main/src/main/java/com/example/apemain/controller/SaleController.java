@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("api/v1/sale")
@@ -25,5 +27,10 @@ public class SaleController {
     @PutMapping("/cart/{userId}/{itemId}")
     public ResponseEntity<String> putIitemIntoCart(@PathVariable final int userId,@PathVariable final int itemId){
         return ResponseEntity.ok(service.putItemIntoCart(userId, itemId));
+    }
+
+    @GetMapping("/{userID}")
+    public ResponseEntity<List<String>> getShpingCartItemsByUserId(@PathVariable final int userID){
+        return ResponseEntity.ok(service.getShpoingCartItemsByUserId(userID));
     }
 }
