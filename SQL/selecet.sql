@@ -83,6 +83,10 @@ LIMIT 1;
 */
 /* Step 0: get users curent shoping cart if he hsae one*/
 
+SELECT s.number from ape_user
+join public.sale s on ape_user.id = s.ape_user
+where s.fulfill=true and s.ape_user=4;
+
     SELECT client.status from client
         where client_id =1;
 

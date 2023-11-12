@@ -16,22 +16,40 @@ public class ShopingRepository {
 
     private DataSource dataSource;
 
-    public void createShopingCart(int userId) throws Exception {
+    public int createShopingCart(int userId) throws Exception {
 
         String sql= "insert into sale(number, ape_user, amount, fulfill, time_stamp) " +
                     "values (?,?,0,false, CURRENT_DATE);";
 
+        int newSaleNumberget=lastSaleNumber()+1;
         Connection connection = DataSourceUtils.getConnection(dataSource);
-        int newSaleNumberget=lastSaleNumber(connection)+1;
-        try {
-            PreparedStatement statement = connection.prepareStatement(sql);
+        try (PreparedStatement statement = connection.prepareStatement(sql)){
             statement.setInt(1, newSaleNumberget);
             statement.setInt(2, userId);
 
-            statement.executeQuery();
-        }catch (Exception e){
-            e.printStackTrace();
+            statement.execute();
+        }
+        return newSaleNumberget;
+    }
 
+    public int cheIfShopingCartExistsForUser(int userId) throws Exception {
+
+        String sql= "SELECT s.number from ape_user " +
+                "join public.sale s on ape_user.id = s.ape_user " +
+                "where s.fulfill=false and s.ape_user=?;";
+
+        Connection connection = DataSourceUtils.getConnection(dataSource);
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, userId);
+            ResultSet resultSet =statement.executeQuery();
+            if(!resultSet.next()){
+                return 0;
+            }
+            int existingCartNumber=resultSet.getInt("number");
+            return existingCartNumber;
+        }catch (Exception e){
+            throw new Exception();
         }
     }
 
@@ -46,31 +64,27 @@ public class ShopingRepository {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, saleId);
             statement.setInt(2, intemId);
-
             statement.executeQuery();
         }catch (Exception e){
-            e.printStackTrace();
-
+            throw new Exception();
         }
     }
 
-    private int lastSaleNumber(Connection connection) throws Exception {
+    private int lastSaleNumber() {
 
         String sql = "SELECT sale.number from sale " +
                      "order by sale.number desc LIMIT 1;";
-
+        Connection connection = DataSourceUtils.getConnection(dataSource);
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-
                 return resultSet.getInt("number");
             } else {
                 throw new SQLException();
             }
         } catch (SQLException e) {
-            e.printStackTrace();
-            throw new Exception();
+            throw new RuntimeException(e);
         }
     }
 }

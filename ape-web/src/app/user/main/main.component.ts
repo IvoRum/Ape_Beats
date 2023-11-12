@@ -16,6 +16,7 @@ export class MainComponent implements OnInit {
   mostSoldItem!: Item;
   instumentFlag: boolean = true;
   recordsFlag: boolean = true;
+  isLoged = localStorage.getItem('logedId');
 
   constructor(
     private dataService: DataServiceService,
