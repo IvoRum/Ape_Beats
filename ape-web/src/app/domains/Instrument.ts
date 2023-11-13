@@ -1,4 +1,5 @@
 export interface Instrument {
+  id: string;
   type: string;
   name: string;
   company: string;

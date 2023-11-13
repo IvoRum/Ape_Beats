@@ -25,7 +25,7 @@ public class SaleController {
         return ResponseEntity.ok(service.getMostSoldItem());
     }
 
-    @PutMapping("/cart/{userId}/{itemId}")
+    @GetMapping("/cart/{userId}/{itemId}")
     public ResponseEntity<String> putIitemIntoCart(@PathVariable final int userId,@PathVariable final int itemId){
         return ResponseEntity.ok(service.putItemIntoCart(userId, itemId));
     }

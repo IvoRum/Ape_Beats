@@ -9,6 +9,7 @@ import java.sql.Date;
 @AllArgsConstructor
 @Data
 public class Instrument {
+    private final int id;
     private final String type;
     private final String name;
     private final String company;

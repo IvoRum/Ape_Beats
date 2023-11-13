@@ -100,4 +100,10 @@ export class DataServiceService {
       `http://localhost:8080/api/v1/sale/` + userId
     );
   }
+
+  addItemToCart(userId: any, itemID: any) {
+    this.http.get(
+      `http://localhost:8080/api/v1/sale/cart/` + userId + `/` + itemID
+    );
+  }
 }

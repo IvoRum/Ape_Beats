@@ -7,6 +7,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Data
 @RequiredArgsConstructor
 public class Record {
+    private final int id;
+
     private final String name;
     private final int price;
     private final boolean stock;

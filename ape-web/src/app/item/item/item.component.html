@@ -27,8 +27,8 @@
       <div *ngIf="card.genre">Genre: {{ card.genre }}</div>
       <div *ngIf="card.artistName">Artidt: {{ card.artistName }}</div>
       <div *ngIf="isLoged">
-        <button mat-icon-button>
-          <mat-icon>add_shopping_cart</mat-icon>
+        <button mat-icon-button (click)="addItemToShpoinCart(card.id)">
+          <mat-icon>add_shopping_cart</mat-icon>{{ card.id }}
         </button>
         <button *ngIf="card.cart" mat-icon-button>
           <mat-icon>remove_shopping_cart</mat-icon>
