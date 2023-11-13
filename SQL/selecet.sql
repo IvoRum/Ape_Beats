@@ -106,6 +106,13 @@ delete from Sale_item where sale_item.sale=? && sale_item.item=?;
 /* Step 3: Finish the order and set to user*/
 update sale set fulfill=true where number=?;
 
+/* Get users shpoing card whit items by user id*/
+
+select si.item from sale
+join public.sale_item si on sale.number = si.sale
+join public.ape_user au on sale.ape_user = au.id
+where au.id=4 and sale.fulfill=false;
+
 /*
     Get by Instrument Type
 */

@@ -8,6 +8,7 @@ import { Artist } from 'src/app/domains/Artist';
 import { StatitcInfomation } from 'src/app/domains/StatitcInfomation';
 import { UserDate } from 'src/app/domains/UserDate';
 import { UserSales } from 'src/app/domains/UserSales';
+import { CartItem } from 'src/app/domains/CartItem';
 
 @Injectable({
   providedIn: 'root',
@@ -91,6 +92,12 @@ export class DataServiceService {
   fetchUserSales(userId: any): Observable<UserSales[]> {
     return this.http.get<UserSales[]>(
       `http://localhost:8080/api/v1/user/sale/` + userId
+    );
+  }
+
+  fetchUserCartItems(userId: any): Observable<CartItem[]> {
+    return this.http.get<CartItem[]>(
+      `http://localhost:8080/api/v1/sale/` + userId
     );
   }
 }

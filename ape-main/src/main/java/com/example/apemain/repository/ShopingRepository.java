@@ -1,5 +1,6 @@
 package com.example.apemain.repository;
 
+import com.example.apemain.domains.returns.ShopinCartItem;
 import lombok.AllArgsConstructor;
 import org.springframework.jdbc.datasource.DataSourceUtils;
 import org.springframework.stereotype.Repository;
@@ -90,9 +91,9 @@ public class ShopingRepository {
         }
     }
 
-    public List<String> getUsersShopingCartItems(int userId) throws Exception {
+    public List<ShopinCartItem> getUsersShopingCartItems(int userId) throws Exception {
 
-        String sql= "select i.name from sale\n" +
+        String sql= "select i.name,i.price from sale " +
                 "join public.sale_item si on sale.number = si.sale " +
                 "join public.ape_user au on sale.ape_user = au.id " +
                 "               join public.item i on i.item_id = si.item " +
@@ -103,9 +104,14 @@ public class ShopingRepository {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, userId);
             ResultSet resultSet =statement.executeQuery();
-            List<String> cartItems=new ArrayList<>();
+            List<ShopinCartItem> cartItems=new ArrayList<>();
             while(resultSet.next()){
-                cartItems.add(resultSet.getString("name"));
+                cartItems.add(
+                        new ShopinCartItem(
+                                resultSet.getString("name"),
+                                resultSet.getInt("price")
+                        )
+                );
             }
             return cartItems;
         }catch (Exception e){

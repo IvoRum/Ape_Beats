@@ -1,6 +1,7 @@
 package com.example.apemain.service;
 
 import com.example.apemain.domains.returns.MostSoldItem;
+import com.example.apemain.domains.returns.ShopinCartItem;
 import com.example.apemain.repository.ApeRepository;
 import com.example.apemain.repository.ShopingRepository;
 import jakarta.transaction.Transactional;
@@ -48,7 +49,7 @@ public class SaleService {
         }
     }
 
-    public List<String> getShpoingCartItemsByUserId(final int userID) {
+    public List<ShopinCartItem> getShpoingCartItemsByUserId(final int userID) {
         try {
             return shopingRepository.getUsersShopingCartItems(userID);
         } catch (Exception e) {

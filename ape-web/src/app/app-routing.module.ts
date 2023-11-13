@@ -5,6 +5,7 @@ import { ArtistsComponent } from './user/artists/artists.component';
 import { IstrumentsComponent } from './user/istruments/istruments.component';
 import { RecordsComponent } from './user/records/records.component';
 import { ProfileComponent } from './user/profile/profile.component';
+import { CartComponent } from './user/cart/cart.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent },
@@ -12,7 +13,7 @@ const routes: Routes = [
   { path: 'instruments', component: IstrumentsComponent },
   { path: 'record', component: RecordsComponent },
   { path: 'profile', component: ProfileComponent },
-
+  { path: 'cart', component: CartComponent },
   {
     path: 'user',
     loadChildren: () => import('./user/user.module').then((m) => m.UserModule),

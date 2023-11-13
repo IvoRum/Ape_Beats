@@ -1,6 +1,7 @@
 package com.example.apemain.controller;
 
 import com.example.apemain.domains.returns.MostSoldItem;
+import com.example.apemain.domains.returns.ShopinCartItem;
 import com.example.apemain.service.SaleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -30,7 +31,7 @@ public class SaleController {
     }
 
     @GetMapping("/{userID}")
-    public ResponseEntity<List<String>> getShpingCartItemsByUserId(@PathVariable final int userID){
+    public ResponseEntity<List<ShopinCartItem>> getShpingCartItemsByUserId(@PathVariable final int userID){
         return ResponseEntity.ok(service.getShpoingCartItemsByUserId(userID));
     }
 }

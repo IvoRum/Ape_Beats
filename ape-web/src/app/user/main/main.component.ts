@@ -49,5 +49,7 @@ export class MainComponent implements OnInit {
   goProfle() {
     this.router.navigate(['/profile']);
   }
-  goCart() {}
+  goCart() {
+    this.router.navigate(['/cart']);
+  }
 }
