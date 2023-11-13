@@ -93,7 +93,7 @@ public class ShopingRepository {
 
     public List<ShopinCartItem> getUsersShopingCartItems(int userId) throws Exception {
 
-        String sql= "select i.name,i.price from sale " +
+        String sql= "select i.name,i.price,i.discrimination  from sale " +
                 "join public.sale_item si on sale.number = si.sale " +
                 "join public.ape_user au on sale.ape_user = au.id " +
                 "               join public.item i on i.item_id = si.item " +
@@ -109,7 +109,8 @@ public class ShopingRepository {
                 cartItems.add(
                         new ShopinCartItem(
                                 resultSet.getString("name"),
-                                resultSet.getInt("price")
+                                resultSet.getInt("price"),
+                                resultSet.getString("discrimination")
                         )
                 );
             }

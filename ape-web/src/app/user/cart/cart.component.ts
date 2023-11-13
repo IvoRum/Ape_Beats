@@ -19,6 +19,9 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.fetchUserCartItems(this.isLoged).subscribe((data) => {
       this.cartItems = data;
+      this.cartItems.forEach((element) => {
+        element.cart = true;
+      });
     });
   }
 }
