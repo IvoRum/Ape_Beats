@@ -71,4 +71,14 @@ class SaleService {
             throw new RuntimeException(e);
         }
     }
+
+    public
+    String finishSale(int userID) {
+        try {
+            shopingRepository.finishSale(userID);
+            return "da";
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

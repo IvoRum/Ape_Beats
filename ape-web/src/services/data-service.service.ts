@@ -120,4 +120,16 @@ export class DataServiceService {
       'http://localhost:8080/api/v1/sale/cart/' + userId + '/' + itemID
     );
   }
+
+  removeItemToCart(userId: string, itemID: number) {
+    console.log(userId);
+    console.log(itemID);
+    return this.http.get(
+      'http://localhost:8080/api/v1/sale/delete/' + userId + '/' + itemID
+    );
+  }
+
+  checkOut(userId: string) {
+    return this.http.get('http://localhost:8080/api/v1/sale/finish/' + userId);
+  }
 }

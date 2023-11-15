@@ -93,7 +93,7 @@ public class ShopingRepository {
 
     public List<ShopinCartItem> getUsersShopingCartItems(int userId) throws Exception {
 
-        String sql= "select i.name,i.price,i.discrimination  from sale " +
+        String sql= "select i.item_id, i.name,i.price,i.discrimination  from sale " +
                 "join public.sale_item si on sale.number = si.sale " +
                 "join public.ape_user au on sale.ape_user = au.id " +
                 "               join public.item i on i.item_id = si.item " +
@@ -108,6 +108,7 @@ public class ShopingRepository {
             while(resultSet.next()){
                 cartItems.add(
                         new ShopinCartItem(
+                                resultSet.getInt("item_id"),
                                 resultSet.getString("name"),
                                 resultSet.getInt("price"),
                                 resultSet.getString("discrimination")
@@ -122,13 +123,28 @@ public class ShopingRepository {
 
     public void deleteItemsFromShopingCart(int userId,int itemId) throws Exception {
 
-        String sql= "delete from Sale_item where sale_item.sale=? && sale_item.item=?;";
+        String sql= "delete from Sale_item where sale_item.sale=? and sale_item.item=?;";
         int saleId=cheIfShopingCartExistsForUser(userId);
         Connection connection = DataSourceUtils.getConnection(dataSource);
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, saleId);
             statement.setInt(2, itemId);
+            statement.execute();
+        }catch (Exception e){
+            throw new Exception();
+        }
+    }
+
+    public void finishSale(int userId) throws Exception {
+
+        String sql= "update sale set fulfill=true where number=?;";
+        int saleId=cheIfShopingCartExistsForUser(userId);
+        Connection connection = DataSourceUtils.getConnection(dataSource);
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, saleId);
+
             statement.execute();
         }catch (Exception e){
             throw new Exception();

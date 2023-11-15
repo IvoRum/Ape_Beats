@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Instrument } from 'src/app/domains/Instrument';
 import { Item } from 'src/app/domains/Item';
 import { DataServiceService } from 'src/services/data-service.service';
@@ -6,6 +6,8 @@ import { Record } from 'src/app/domains/Record';
 import { Artist } from 'src/app/domains/Artist';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { StatitcInfomation } from 'src/app/domains/StatitcInfomation';
+import { UserSales } from 'src/app/domains/UserSales';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-main',
@@ -40,10 +42,12 @@ export class MainComponent implements OnInit {
   formrecord: FormGroup;
   formCreateRecord: FormGroup;
   formCreateArtist: FormGroup;
+  purchesForm: FormGroup;
 
   constructor(
     private dataService: DataServiceService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    public dialog: MatDialog
   ) {
     this.forminstument = this.formBuilder.group({
       // Define your form controls here, e.g., name, email, etc.
@@ -80,6 +84,9 @@ export class MainComponent implements OnInit {
       artistName: ['artistName'],
       recordLabelID: ['recordLabelID'],
       date: ['date'],
+    });
+    this.purchesForm = this.formBuilder.group({
+      userId: ['userId'],
     });
   }
 
@@ -154,4 +161,31 @@ export class MainComponent implements OnInit {
       this.staticInformation = data;
     });
   }
+  userSaleData!: UserSales[];
+
+  getUserSaleData() {
+    if (this.purchesForm.valid) {
+      console.log(this.purchesForm.value.userId);
+      this.dataService
+        .fetchUserSales(this.purchesForm.value.userId)
+        .subscribe((data) => {
+          this.dialog.open(DialogD, {
+            data: data,
+          });
+          this.userSaleData = data;
+        });
+    }
+  }
+}
+@Component({
+  selector: 'app-main',
+  templateUrl: './Dialog.html',
+  styleUrls: ['./main.component.css'],
+})
+export class DialogD {
+  userSales!: UserSales[];
+  constructor(@Inject(MAT_DIALOG_DATA) public data: UserSales[]) {
+    this.userSales = data;
+  }
+  displayedColumns: string[] = ['number', 'amount', 'fulfilled'];
 }

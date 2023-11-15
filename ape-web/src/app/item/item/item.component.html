@@ -34,7 +34,11 @@
         >
           <mat-icon>add_shopping_cart</mat-icon>
         </button>
-        <button *ngIf="card.cart" mat-icon-button>
+        <button
+          *ngIf="card.cart"
+          mat-icon-button
+          (click)="removeItemToShpoinCart(card.id)"
+        >
           <mat-icon>remove_shopping_cart</mat-icon>
         </button>
       </div>

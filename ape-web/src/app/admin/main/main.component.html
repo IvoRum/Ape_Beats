@@ -327,5 +327,12 @@
         <button mat-raised-button color="primary" type="submit">Insert</button>
       </form>
     </div>
+
+    <form [formGroup]="purchesForm" (ngSubmit)="getUserSaleData()">
+      Get a serten users purches history<br />
+      <input type="text" formControlName="userId" /> <br />
+
+      <button type="submit">Fiend</button>
+    </form>
   </div>
 </div>

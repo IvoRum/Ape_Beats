@@ -28,4 +28,9 @@ export class CartComponent implements OnInit {
   gotoMain(): void {
     this.router.navigate(['']);
   }
+  checkOut(): void {
+    if (this.isLoged) {
+      this.dataService.checkOut(this.isLoged).subscribe((data) => {});
+    }
+  }
 }

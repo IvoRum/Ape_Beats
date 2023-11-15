@@ -23,4 +23,14 @@ export class ItemComponent {
         });
     }
   }
+
+  removeItemToShpoinCart(itemId: number) {
+    if (this.isLoged) {
+      this.dataService
+        .removeItemToCart(this.isLoged, itemId)
+        .subscribe((response) => {
+          console.log(response);
+        });
+    }
+  }
 }

@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Found User</h1>
+<div mat-dialog-content>
+  Users purches history:
+  <ul>
+    <div *ngFor="let item of data">
+      <li>Number of purches: {{item.nuber}}</li>
+      <li>Amount: {{item.amount}}</li>
+      <li>Is it fulfilled: {{item.fulfilled}}</li>
+    </div>
+  </ul>
+</div>
