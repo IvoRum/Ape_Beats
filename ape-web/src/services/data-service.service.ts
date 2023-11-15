@@ -24,6 +24,18 @@ export class DataServiceService {
     );
   }
 
+  fetchInstrumentsBrass(): Observable<Instrument[]> {
+    return this.http.get<Instrument[]>(
+      `http://localhost:8080/api/v1/instrument/brass`
+    );
+  }
+
+  fetchInstrumentsGutars(): Observable<Instrument[]> {
+    return this.http.get<Instrument[]>(
+      `http://localhost:8080/api/v1/instrument/guitar`
+    );
+  }
+
   fetchRecords(): Observable<Record[]> {
     return this.http.get<Record[]>(`http://localhost:8080/api/v1/record`);
   }

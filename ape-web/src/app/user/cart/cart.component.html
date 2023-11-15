@@ -1,3 +1,14 @@
 <p>All user Items</p>
-
-<app-item [projectList]="this.cartItems"></app-item>
+<button mat-button (click)="gotoMain()">Go to main creen</button>
+<div
+  class="container"
+  fxLayout="row wrap"
+  fxLayoutAlign="center"
+  fxLayoutGap="10px"
+  fxLayoutGap.xs="0"
+  class="banner"
+>
+  <div fxFlex="80%">
+    <app-item [projectList]="this.cartItems"></app-item>
+  </div>
+</div>

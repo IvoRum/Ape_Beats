@@ -9,6 +9,9 @@ import { RecordsComponent } from './records/records.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { CartComponent } from './cart/cart.component';
+import { BannerComponent } from './banner/banner.component';
+import { GutarsComponent } from './gutars/gutars.component';
+import { BrassComponent } from './brass/brass.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import { CartComponent } from './cart/cart.component';
     ProfileComponent,
     LogInComponent,
     CartComponent,
+    BannerComponent,
+    GutarsComponent,
+    BrassComponent,
   ],
   imports: [CommonModule, MaterialModule, ItemModule],
 })

@@ -6,6 +6,8 @@ import { IstrumentsComponent } from './user/istruments/istruments.component';
 import { RecordsComponent } from './user/records/records.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { CartComponent } from './user/cart/cart.component';
+import { BrassComponent } from './user/brass/brass.component';
+import { GutarsComponent } from './user/gutars/gutars.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent },
@@ -14,6 +16,8 @@ const routes: Routes = [
   { path: 'record', component: RecordsComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'brass', component: BrassComponent },
+  { path: 'guitar', component: GutarsComponent },
   {
     path: 'user',
     loadChildren: () => import('./user/user.module').then((m) => m.UserModule),

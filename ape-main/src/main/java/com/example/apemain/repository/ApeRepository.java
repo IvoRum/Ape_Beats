@@ -292,5 +292,79 @@ public class ApeRepository {
     }
 
 
+    public List<Instrument> getAllBrassInstrument() throws Exception {
+        String sql= "SELECT " +
+                    "    it.instrument_type_name, " +
+                    "   i3.item_id, i3.name as item_name,c.name as company_name, i3.stock, i3.price, i3.manufacturing_date, i3.discrimination " +
+                    "        ,g.name as genre_name " +
+                    "FROM instrument " +
+                    "         join public.item i3 on i3.item_id = instrument.item_id " +
+                    "         join public.genre g on g.id = i3.genre " +
+                    "         join public.instrument_istrument_type iit on instrument.instrument_id = iit.instrument_id " +
+                    "         join public.instrument_type it on it.id = iit.instrument_type_id " +
+                    "         join public.company c on c.id = i3.company " +
+                    "WHERE it.id=3;";
+        Connection connection = DataSourceUtils.getConnection(dataSource);
+
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            List<Instrument> instrumentList=new ArrayList<>();
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                int id=resultSet.getInt("item_id");
+                String name = resultSet.getString("item_name");
+                String company = resultSet.getString("company_name");
+                boolean stock = resultSet.getBoolean("stock");
+                Date date = resultSet.getDate("manufacturing_date");
+                String genre = resultSet.getString("genre_name");
+                int price = resultSet.getInt("price");
+                String type = resultSet.getString("instrument_type_name");
+                String des = resultSet.getString("discrimination");
+
+                instrumentList.add(new Instrument(id,type, name, company, stock, price, date, genre, des));
+            }
+            return List.copyOf(instrumentList);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new Exception();
+        }
+    }
+
+    public List<Instrument> getAllGitarInstrument() throws Exception {
+        String sql= "SELECT " +
+                    "    it.instrument_type_name, " +
+                    "    i3.item_id,i3.name as item_name,c.name as company_name,i3.stock,i3.price,i3.manufacturing_date, i3.discrimination " +
+                    "        ,g.name as genre_name " +
+                    "FROM instrument " +
+                    "         join public.item i3 on i3.item_id = instrument.item_id " +
+                    "         join public.genre g on g.id = i3.genre " +
+                    "         join public.instrument_istrument_type iit on instrument.instrument_id = iit.instrument_id " +
+                    "         join public.instrument_type it on it.id = iit.instrument_type_id " +
+                    "         join public.company c on c.id = i3.company " +
+                    "WHERE it.id=1;";
+        Connection connection = DataSourceUtils.getConnection(dataSource);
+
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            List<Instrument> instrumentList=new ArrayList<>();
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                int id=resultSet.getInt("item_id");
+                String name = resultSet.getString("item_name");
+                String company = resultSet.getString("company_name");
+                boolean stock = resultSet.getBoolean("stock");
+                Date date = resultSet.getDate("manufacturing_date");
+                String genre = resultSet.getString("genre_name");
+                int price = resultSet.getInt("price");
+                String type = resultSet.getString("instrument_type_name");
+                String des = resultSet.getString("discrimination");
+
+                instrumentList.add(new Instrument(id,type, name, company, stock, price, date, genre, des));
+            }
+            return List.copyOf(instrumentList);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new Exception();
+        }
+    }
+
 
 }

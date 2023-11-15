@@ -26,6 +26,15 @@ public class InstrumentController {
     public ResponseEntity<List<Instrument>> getAllInstruments(){
         return ResponseEntity.ok(instrumentService.getAllInstruments());
     }
+    @GetMapping("/brass")
+    public ResponseEntity<List<Instrument>> getAllBrassInstruments(){
+        return ResponseEntity.ok(instrumentService.getAllBrassInstruments());
+    }
+
+    @GetMapping("/guitar")
+    public ResponseEntity<List<Instrument>> getAllGuitarInstruments(){
+        return ResponseEntity.ok(instrumentService.getAllGuitarInstruments());
+    }
 
     @PutMapping()
     public ResponseEntity<String> putInstrument(@RequestBody CreateInstrument createInstrument)

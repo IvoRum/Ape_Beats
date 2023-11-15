@@ -1,23 +1,4 @@
-<div
-  class="container"
-  fxLayout="row wrap"
-  fxLayoutAlign="center"
-  fxLayoutGap="10px"
-  fxLayoutGap.xs="0"
-  class="banner"
->
-  <div class="banner_title">Ape Beats</div>
-</div>
-<div fxLayoutAlign="end start">
-  <button mat-icon-button (click)="goProfle()">
-    <mat-icon>person</mat-icon>
-  </button>
-  <div *ngIf="isLoged">
-    <button mat-icon-button (click)="goCart()">
-      <mat-icon>shopping_cart</mat-icon>
-    </button>
-  </div>
-</div>
+<app-banner></app-banner>
 <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center">
   <mat-tab label="First"
     ><div fxLayoutAlign="center ">

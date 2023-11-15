@@ -1,2 +1,20 @@
-<h1>Instruments</h1>
-<app-item [projectList]="this.instruments"></app-item>
+<app-banner></app-banner>
+<div
+  class="container"
+  fxLayout="row wrap"
+  fxLayoutAlign="center"
+  fxLayoutGap="10px"
+  fxLayoutGap.xs="0"
+  class="all-instrument-holder"
+>
+  <div fxFlex="100%" fxLayoutAlign="center " class="banner-instruments">
+    <h1 class="padder">Instruments</h1>
+  </div>
+  <div fxFlex="45%" class="brass" (click)="goToBrass()"><h1>Brass</h1></div>
+  <div fxFlex="45%" class="gitar" (click)="goToGitars()"><h1>Guitar</h1></div>
+
+  <div fxFlex="100%" fxLayoutAlign="center " class="all-instruments">
+    <h1 class="padder">All Instruments</h1>
+  </div>
+  <app-item [projectList]="this.instruments"></app-item>
+</div>

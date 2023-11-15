@@ -118,7 +118,7 @@ where au.id=4 and sale.fulfill=false;
 */
 /* Select all instrument types for drop down*/
 SELECT instrument_type_name from instrument_type;
-
+/* Get all Brass instruments*/
 SELECT
     it.instrument_type_name,
     i3.name as item_name,c.name,i3.stock,i3.price,i3.manufacturing_date, i3.discrimination
@@ -175,3 +175,15 @@ join public.item i on i.item_id = i2.item_id ;
 SELECT * from ape_user
 join public.client cl on cl.ape_user=ape_user.id
 where ape_user.id=4;
+
+
+/*
+    All DELETES
+*/
+/* Delete Intrument */
+delete from instrument_istrument_type where instrument_istrument_type.instrument_id=8;
+delete from instrument where instrument.instrument_id=8;
+delete from item where item.item_id=11;
+
+/*delete item from shopping cart*/
+delete from Sale_item where sale_item.sale=? && sale_item.item=?;
