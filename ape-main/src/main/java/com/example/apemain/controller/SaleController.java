@@ -34,4 +34,9 @@ public class SaleController {
     public ResponseEntity<List<ShopinCartItem>> getShpingCartItemsByUserId(@PathVariable final int userID){
         return ResponseEntity.ok(service.getShpoingCartItemsByUserId(userID));
     }
+
+    @GetMapping("/delete/{userID}/{itemId}")
+    public ResponseEntity<String> deleteItemFromShopingCart(@PathVariable final int userID,@PathVariable final int itemId){
+        return ResponseEntity.ok(service.deleteItemFromShoppingCart(userID,itemId));
+    }
 }

@@ -113,9 +113,11 @@ export class DataServiceService {
     );
   }
 
-  addItemToCart(userId: any, itemID: any) {
-    this.http.get(
-      `http://localhost:8080/api/v1/sale/cart/` + userId + `/` + itemID
+  addItemToCart(userId: string, itemID: number) {
+    console.log(userId);
+    console.log(itemID);
+    return this.http.get(
+      'http://localhost:8080/api/v1/sale/cart/' + userId + '/' + itemID
     );
   }
 }

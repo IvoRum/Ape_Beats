@@ -67,7 +67,7 @@ public class ShopingRepository {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, saleId);
             statement.setInt(2, intemId);
-            statement.executeQuery();
+            statement.execute();
         }catch (Exception e){
             throw new Exception();
         }
@@ -115,6 +115,21 @@ public class ShopingRepository {
                 );
             }
             return cartItems;
+        }catch (Exception e){
+            throw new Exception();
+        }
+    }
+
+    public void deleteItemsFromShopingCart(int userId,int itemId) throws Exception {
+
+        String sql= "delete from Sale_item where sale_item.sale=? && sale_item.item=?;";
+        int saleId=cheIfShopingCartExistsForUser(userId);
+        Connection connection = DataSourceUtils.getConnection(dataSource);
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, saleId);
+            statement.setInt(2, itemId);
+            statement.execute();
         }catch (Exception e){
             throw new Exception();
         }

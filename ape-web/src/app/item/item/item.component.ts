@@ -12,9 +12,15 @@ export class ItemComponent {
 
   constructor(private dataService: DataServiceService) {}
 
-  addItemToShpoinCart(itemId: any) {
+  addItemToShpoinCart(itemId: number) {
     console.log(itemId);
     console.log(this.isLoged);
-    this.dataService.addItemToCart(this.isLoged, itemId);
+    if (this.isLoged) {
+      this.dataService
+        .addItemToCart(this.isLoged, itemId)
+        .subscribe((response) => {
+          console.log(response);
+        });
+    }
   }
 }
