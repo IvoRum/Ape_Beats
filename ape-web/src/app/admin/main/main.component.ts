@@ -8,6 +8,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { StatitcInfomation } from 'src/app/domains/StatitcInfomation';
 import { UserSales } from 'src/app/domains/UserSales';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
+import { UserSaleDataComponent } from '../user-sale-data/user-sale-data.component';
 
 @Component({
   selector: 'app-main',
@@ -169,10 +171,9 @@ export class MainComponent implements OnInit {
       this.dataService
         .fetchUserSales(this.purchesForm.value.userId)
         .subscribe((data) => {
-          this.dialog.open(DialogD, {
+          this.dialog.open(UserSaleDataComponent, {
             data: data,
           });
-          this.userSaleData = data;
         });
     }
   }

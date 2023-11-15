@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UserSales } from 'src/app/domains/UserSales';
 
 @Component({
@@ -7,6 +8,9 @@ import { UserSales } from 'src/app/domains/UserSales';
   styleUrls: ['./user-sale-data.component.css'],
 })
 export class UserSaleDataComponent {
-  @Input() userSales!: UserSales[];
+  userSales: UserSales[];
   displayedColumns: string[] = ['number', 'amount', 'fulfilled'];
+  constructor(@Inject(MAT_DIALOG_DATA) data: UserSales[]) {
+    this.userSales = data;
+  }
 }

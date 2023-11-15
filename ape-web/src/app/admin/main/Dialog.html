@@ -2,6 +2,14 @@
 <div mat-dialog-content>
   Users purches history:
   <ul>
+    <script>
+      let list = document.getElementById("myList");
+      for (i = 0; i < this.data.length; ++i) {
+        let li = document.createElement("li");
+        li.innerText = data[i];
+        list.appendChild(li);
+      }
+    </script>
     <div *ngFor="let item of data">
       <li>Number of purches: {{item.nuber}}</li>
       <li>Amount: {{item.amount}}</li>
