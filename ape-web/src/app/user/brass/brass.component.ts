@@ -17,7 +17,7 @@ export class BrassComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.dataService.fetchInstruments().subscribe((data) => {
+    this.dataService.fetchInstrumentsBrass().subscribe((data) => {
       this.instruments = data;
     });
   }

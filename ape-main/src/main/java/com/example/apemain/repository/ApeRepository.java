@@ -55,9 +55,11 @@ public class ApeRepository {
 
                     instrumentList.add(new Instrument(id,type, name, company, stock, price, date, genre, des));
             }
+            connection.close();
             return List.copyOf(instrumentList);
         } catch (SQLException e) {
             e.printStackTrace();
+            connection.close();
             throw new Exception();
         }
     }
@@ -269,6 +271,7 @@ public class ApeRepository {
             statement.setDate(10, date);
 
             statement.executeQuery();
+            connection.close();
         }catch (Exception e){
             e.printStackTrace();
 
@@ -285,6 +288,7 @@ public class ApeRepository {
             statement.setInt(2, itemId);
 
             statement.executeQuery();
+            connection.close();
         }catch (Exception e){
             e.printStackTrace();
 
@@ -322,6 +326,7 @@ public class ApeRepository {
 
                 instrumentList.add(new Instrument(id,type, name, company, stock, price, date, genre, des));
             }
+            connection.close();
             return List.copyOf(instrumentList);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -359,9 +364,11 @@ public class ApeRepository {
 
                 instrumentList.add(new Instrument(id,type, name, company, stock, price, date, genre, des));
             }
+            connection.close();
             return List.copyOf(instrumentList);
         } catch (SQLException e) {
             e.printStackTrace();
+            connection.close();
             throw new Exception();
         }
     }
