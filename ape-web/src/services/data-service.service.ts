@@ -9,6 +9,7 @@ import { StatitcInfomation } from 'src/app/domains/StatitcInfomation';
 import { UserDate } from 'src/app/domains/UserDate';
 import { UserSales } from 'src/app/domains/UserSales';
 import { CartItem } from 'src/app/domains/CartItem';
+import { UserDateShort } from 'src/app/domains/UserDateShort';
 
 @Injectable({
   providedIn: 'root',
@@ -113,12 +114,17 @@ export class DataServiceService {
     );
   }
 
-  addItemToCart(userId: string, itemID: number) {
+  fetchAllUser(): Observable<UserDateShort[]> {
+    return this.http.get<UserDateShort[]>(`http://localhost:8080/api/v1/user`);
+  }
+
+  async addItemToCart(userId: string, itemID: number) {
     console.log(userId);
     console.log(itemID);
-    return this.http.get(
+    const result = await this.http.get(
       'http://localhost:8080/api/v1/sale/cart/' + userId + '/' + itemID
     );
+    return result;
   }
 
   removeItemToCart(userId: string, itemID: number) {
@@ -132,4 +138,9 @@ export class DataServiceService {
   checkOut(userId: string) {
     return this.http.get('http://localhost:8080/api/v1/sale/finish/' + userId);
   }
+}
+function timeout(
+  arg0: number
+): import('rxjs').OperatorFunction<Object, unknown> {
+  throw new Error('Function not implemented.');
 }

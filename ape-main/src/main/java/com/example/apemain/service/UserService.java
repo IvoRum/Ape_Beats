@@ -1,6 +1,7 @@
 package com.example.apemain.service;
 
 import com.example.apemain.domains.UserProfileDate;
+import com.example.apemain.domains.returns.UserData;
 import com.example.apemain.domains.returns.UserSaleData;
 import com.example.apemain.repository.UserRepository;
 import jakarta.transaction.Transactional;
@@ -37,6 +38,14 @@ public class UserService {
     public List<UserSaleData> getUserSaleDate(int userId) {
         try {
             return userRepository.getUserSales(userId);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public List<UserData> getAllUser() {
+        try {
+            return userRepository.getAllUsers();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

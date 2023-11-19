@@ -1,6 +1,7 @@
 package com.example.apemain.controller;
 
 import com.example.apemain.domains.UserProfileDate;
+import com.example.apemain.domains.returns.UserData;
 import com.example.apemain.domains.returns.UserSaleData;
 import com.example.apemain.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,11 @@ import java.util.List;
 @RequestMapping("api/v1/user")
 public class UserController {
     private final UserService userService;
+
+    @GetMapping("")
+    public ResponseEntity<List<UserData>> allusers(){
+        return ResponseEntity.ok(userService.getAllUser());
+    }
 
     @GetMapping("/{email}/{pass}")
     public ResponseEntity<Integer> isUserLogdIn(@PathVariable String email, @PathVariable String pass){

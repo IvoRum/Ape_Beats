@@ -55,7 +55,7 @@ public class ApeRepository {
 
                     instrumentList.add(new Instrument(id,type, name, company, stock, price, date, genre, des));
             }
-            connection.close();
+            //connection.close();
             return List.copyOf(instrumentList);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -203,7 +203,7 @@ public class ApeRepository {
             statement.setInt(3, recordLabelID);
             statement.setDate(4, date);
 
-            statement.executeQuery();
+            statement.execute();
         }
     }
 
@@ -287,8 +287,7 @@ public class ApeRepository {
             statement.setString(1, name);
             statement.setInt(2, itemId);
 
-            statement.executeQuery();
-            connection.close();
+            statement.executeUpdate();
         }catch (Exception e){
             e.printStackTrace();
 

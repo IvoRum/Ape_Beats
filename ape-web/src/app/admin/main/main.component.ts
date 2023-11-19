@@ -8,8 +8,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { StatitcInfomation } from 'src/app/domains/StatitcInfomation';
 import { UserSales } from 'src/app/domains/UserSales';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 import { UserSaleDataComponent } from '../user-sale-data/user-sale-data.component';
+import { UserDateShort } from 'src/app/domains/UserDateShort';
 
 @Component({
   selector: 'app-main',
@@ -22,6 +22,7 @@ export class MainComponent implements OnInit {
   mostSoldItem!: Item;
   artist!: Artist[];
   staticInformation!: StatitcInfomation;
+  userData!: UserDateShort[];
 
   displayedColumns: string[] = [
     'type',
@@ -100,6 +101,7 @@ export class MainComponent implements OnInit {
         .subscribe((response) => {
           // Handle the response
         });
+      window.location.reload();
     }
   }
 
@@ -111,6 +113,7 @@ export class MainComponent implements OnInit {
         .subscribe((response) => {
           // Handle the response
         });
+      window.location.reload();
     }
   }
 
@@ -121,7 +124,9 @@ export class MainComponent implements OnInit {
         .updateItemName(this.formrecord.value)
         .subscribe((response) => {
           // Handle the response
+          console.log(response);
         });
+      window.location.reload();
     }
   }
 
@@ -133,6 +138,7 @@ export class MainComponent implements OnInit {
         .subscribe((response) => {
           // Handle the response
         });
+      window.location.reload();
     }
   }
   onSubmitNewArtist() {
@@ -143,6 +149,7 @@ export class MainComponent implements OnInit {
         .subscribe((response) => {
           // Handle the response
         });
+      window.location.reload();
     }
   }
 
@@ -161,6 +168,9 @@ export class MainComponent implements OnInit {
     });
     this.dataService.fetchStaticInformation().subscribe((data) => {
       this.staticInformation = data;
+    });
+    this.dataService.fetchAllUser().subscribe((data) => {
+      this.userData = data;
     });
   }
   userSaleData!: UserSales[];

@@ -247,7 +247,7 @@
           <mat-label>Record labes</mat-label>
           <mat-select formControlName="artistId">
             <div *ngFor="let record of this.staticInformation.recordLabelList">
-              <mat-option value="record.id">{{ record.name }}</mat-option>
+              <mat-option value="{{ record.id }}">{{ record.name }}</mat-option>
             </div>
           </mat-select>
         </mat-form-field>
@@ -260,7 +260,7 @@
           <mat-label>Record</mat-label>
           <mat-select formControlName="id">
             <div *ngFor="let record of this.staticInformation.recordNames">
-              <mat-option value="record.id">{{ record.name }}</mat-option>
+              <mat-option value="{{ record.id }}">{{ record.name }}</mat-option>
             </div>
           </mat-select>
         </mat-form-field>
@@ -308,7 +308,12 @@
           <input matInput type="text" formControlName="artistName" /> <br />
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="text" formControlName="recordLabelID" /> <br />
+          <mat-label>Record labes</mat-label>
+          <mat-select formControlName="recordLabelID">
+            <div *ngFor="let record of this.staticInformation.recordLabelList">
+              <mat-option value="{{ record.id }}">{{ record.name }}</mat-option>
+            </div>
+          </mat-select>
         </mat-form-field>
         <mat-form-field>
           <mat-label>Choose a date</mat-label>
@@ -330,8 +335,14 @@
 
     <form [formGroup]="purchesForm" (ngSubmit)="getUserSaleData()">
       Get a serten users purches history<br />
-      <input type="text" formControlName="userId" /> <br />
-
+      <mat-form-field>
+        <mat-label>All users</mat-label>
+        <mat-select formControlName="userId">
+          <div *ngFor="let user of this.userData">
+            <mat-option value="{{ user.id }}">{{ user.email }}</mat-option>
+          </div>
+        </mat-select>
+      </mat-form-field>
       <button type="submit">Fiend</button>
     </form>
   </div>

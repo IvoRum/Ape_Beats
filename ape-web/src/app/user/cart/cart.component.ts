@@ -16,7 +16,7 @@ export class CartComponent implements OnInit {
   isLoged = localStorage.getItem('logedId');
   cartItems!: CartItem[];
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.dataService.fetchUserCartItems(this.isLoged).subscribe((data) => {
       this.cartItems = data;
       this.cartItems.forEach((element) => {
@@ -30,7 +30,9 @@ export class CartComponent implements OnInit {
   }
   checkOut(): void {
     if (this.isLoged) {
-      this.dataService.checkOut(this.isLoged).subscribe((data) => {});
+      this.dataService.checkOut(this.isLoged).subscribe((data) => {
+        this.router.navigate(['/cart']);
+      });
     }
   }
 }

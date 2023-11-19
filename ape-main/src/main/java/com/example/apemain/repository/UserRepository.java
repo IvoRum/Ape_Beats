@@ -1,6 +1,7 @@
 package com.example.apemain.repository;
 
 import com.example.apemain.domains.UserProfileDate;
+import com.example.apemain.domains.returns.UserData;
 import com.example.apemain.domains.returns.UserSaleData;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.datasource.DataSourceUtils;
@@ -89,6 +90,27 @@ public class UserRepository {
                 boolean firstName=resultSet.getBoolean("fulfill");
 
                 result.add(new UserSaleData(number,amount,phone,firstName));
+            }
+            return result;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<UserData> getAllUsers() throws Exception {
+
+        String sql= "select  ape_user.id ,ape_user.email from ape_user;";
+
+        Connection connection = DataSourceUtils.getConnection(dataSource);
+        try(PreparedStatement statement = connection.prepareStatement(sql)) {
+            List<UserData> result= new ArrayList<>();
+
+            ResultSet resultSet= statement.executeQuery();
+            while (resultSet.next()) {
+                int id=resultSet.getInt("id");
+                String email=resultSet.getString("email");
+                result.add(new UserData(id,email));
             }
             return result;
         }catch (Exception e){
