@@ -101,6 +101,12 @@ values (2,'Jazz','you know','2023-10-28');
 INSERT INTO Genre(id,name,discretion,time_stamp)
 values (3,'Pop','you know','2023-10-28');
 
+INSERT INTO Genre(id,name,discretion,time_stamp)
+values (4,'Reggae','you know','2023-10-28');
+
+INSERT INTO Genre(id,name,discretion,time_stamp)
+values (5,'Mettal','you know','2023-10-28');
+
 /*
   Creating 3 companies
 */
@@ -113,6 +119,15 @@ values (2,'LPD','2023-10-28');
 
 INSERT INTO Company(id,name,time_stamp)
 values (3,'Yamaha','2023-10-28');
+
+INSERT INTO Company(id,name,time_stamp)
+values (4,'Perl','2023-10-28');
+
+INSERT INTO Company(id,name,time_stamp)
+values (5,'Marpex','2023-10-28');
+
+INSERT INTO Company(id,name,time_stamp)
+values (6,'Thumb','2023-10-28');
 
 /*
   Creating 2 guitars and one bass Instruments.
@@ -152,6 +167,50 @@ values (9,TRUE,34,'Yamaha_YEP_642_TS.jpg','2013-10-28','Yamaha_YAS','Some diescr
 INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
 values (10,TRUE,47,'Yamaha_YEP_642.jpg','2013-10-28','Yamaha_YAS','Some diescriopton',2,3,'2023-10-28');
 
+/* Drum items */
+
+INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
+values (11,TRUE,500,'thumb_base_fdb9291a.jpg','2013-10-28','Tama MBSS55-SKA Starclassic','Some diescriopton',1,6,'2023-10-28');
+
+INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
+values (12,TRUE,1340,'Ymapex-armory-ocean-sunset-ar628sfujg.jpg','2013-10-28','Ymapex-armory','Some diescriopton',1,5,'2023-10-28');
+
+INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
+values (13,TRUE,1120,'EXL725S-C246-large.jpg','2013-10-28','Perl','Some diescriopton',1,4,'2023-10-28');
+
+/* Second set of records*/
+
+INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
+values (14,TRUE,123,'Tyler_The_Creator_Igor.jpg','2013-10-28','Tyler The Creator Igor','Some diescriopton',3,6,'2023-10-28');
+
+INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
+values (15,TRUE,32,'Tama_Impala_Currents.jpg','2013-10-28','Tama Impala Currents','Some diescriopton',1,5,'2023-10-28');
+
+INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
+values (16,TRUE,54,'The_Bearles_Abbey_Read.JPG','2013-10-28','The Bearles Abbey Read','Some diescriopton',1,4,'2023-10-28');
+
+/* Metalica*/
+
+INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
+values (17,TRUE,44,'Metakkica_Garage_Inc.jpg','2013-10-28','Metakkica Garage Inc','Some diescriopton',5,6,'2023-10-28');
+
+INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
+values (18,TRUE,35,'Metallica.JPG','2013-10-28','Kill dem all','Some diescriopton',5,5,'2023-10-28');
+
+INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
+values (19,TRUE,56,'Metallica_Hardwired_To_Self_Destruct.JPG','2013-10-28','Hardwired To Self Destruct','Some diescriopton',5,4,'2023-10-28');
+
+/* Bob marly */
+
+INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
+values (20,TRUE,46,'Bob_Marley_Natty_Dread_Tour_75.jpg','2013-10-28','Natty Dread Tour','Some diescriopton',4,6,'2023-10-28');
+
+INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
+values (21,TRUE,75,'Bob_Marley_Uprising_Live.jpg','2013-10-28','Uprising Live','Some diescriopton',4,5,'2023-10-28');
+
+INSERT INTO Item(item_id,stock,price,discrimination,manufacturing_date,name,description,genre,company,time_stamp)
+values (22,TRUE,45,'Bob+Marley_Songs_Of_Freedom.jpg','2013-10-28','Songs Of Freedom','Some diescriopton',4,4,'2023-10-28');
+
 /*
   Creating 3 Instruments
 */
@@ -169,13 +228,23 @@ INSERT INTO Instrument(Instrument_id,item_id,type,time_stamp)
 VALUES (4,7,1,'2023-10-28');
 
 INSERT INTO Instrument(Instrument_id,item_id,type,time_stamp)
-VALUES (5,8,2,'2023-10-28');
+VALUES (5,8,1,'2023-10-28');
 
 INSERT INTO Instrument(Instrument_id,item_id,type,time_stamp)
 VALUES (6,9,1,'2023-10-28');
 
 INSERT INTO Instrument(Instrument_id,item_id,type,time_stamp)
 VALUES (7,10,1,'2023-10-28');
+
+INSERT INTO Instrument(Instrument_id,item_id,type,time_stamp)
+VALUES (8,11,2,'2023-10-28');
+
+INSERT INTO Instrument(Instrument_id,item_id,type,time_stamp)
+VALUES (9,12,2,'2023-10-28');
+
+INSERT INTO Instrument(Instrument_id,item_id,type,time_stamp)
+VALUES (10,13,2,'2023-10-28');
+
 
 /*
   Creating 3 Instruments
@@ -201,6 +270,15 @@ VALUES (6,3);
 
 INSERT INTO Instrument_istrument_type(instrument_id,instrument_type_id)
 VALUES (7,3);
+
+INSERT INTO Instrument_istrument_type(instrument_id,instrument_type_id)
+VALUES (8,2);
+
+INSERT INTO Instrument_istrument_type(instrument_id,instrument_type_id)
+VALUES (9,2);
+
+INSERT INTO Instrument_istrument_type(instrument_id,instrument_type_id)
+VALUES (10,2);
 
 /*
   Creating 3 Record label
@@ -228,6 +306,21 @@ VALUES (2,'Nirvana',1,'2023-10-28');
 INSERT INTO Artist(id,Name,record_label,time_stamp)
 VALUES (3,'Queen',1,'2023-10-28');
 
+INSERT INTO Artist(id,Name,record_label,time_stamp)
+VALUES (4,'Tyler The Creator',1,'2023-10-28');
+
+INSERT INTO Artist(id,Name,record_label,time_stamp)
+VALUES (5,'Tema',1,'2023-10-28');
+
+INSERT INTO Artist(id,Name,record_label,time_stamp)
+VALUES (6,'The Bearles',1,'2023-10-28');
+
+INSERT INTO Artist(id,Name,record_label,time_stamp)
+VALUES (7,'Metalica',1,'2023-10-28');
+
+INSERT INTO Artist(id,Name,record_label,time_stamp)
+VALUES (8,'Bob Marley',1,'2023-10-28');
+
 /*
   Creating 3 Records
 */
@@ -240,6 +333,40 @@ VALUES (2,5,2,1,'2023-10-28');
 
 INSERT INTO Record(Record_id,item_id,artist,record_label,time_stamp)
 VALUES (3,6,3,3,'2023-10-28');
+
+
+
+INSERT INTO Record(Record_id,item_id,artist,record_label,time_stamp)
+VALUES (4,14,4,1,'2023-10-28');
+
+INSERT INTO Record(Record_id,item_id,artist,record_label,time_stamp)
+VALUES (5,15,5,1,'2023-10-28');
+
+INSERT INTO Record(Record_id,item_id,artist,record_label,time_stamp)
+VALUES (6,16,6,3,'2023-10-28');
+
+
+
+INSERT INTO Record(Record_id,item_id,artist,record_label,time_stamp)
+VALUES (7,17,7,2,'2023-10-28');
+
+INSERT INTO Record(Record_id,item_id,artist,record_label,time_stamp)
+VALUES (8,18,7,2,'2023-10-28');
+
+INSERT INTO Record(Record_id,item_id,artist,record_label,time_stamp)
+VALUES (9,19,7,2,'2023-10-28');
+
+
+
+INSERT INTO Record(Record_id,item_id,artist,record_label,time_stamp)
+VALUES (10,20,8,1,'2023-10-28');
+
+INSERT INTO Record(Record_id,item_id,artist,record_label,time_stamp)
+VALUES (11,21,8,1,'2023-10-28');
+
+INSERT INTO Record(Record_id,item_id,artist,record_label,time_stamp)
+VALUES (12,22,8,1,'2023-10-28');
+
 
 /*
   Creating 10 Sale

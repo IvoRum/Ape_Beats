@@ -187,3 +187,27 @@ delete from item where item.item_id=11;
 
 /*delete item from shopping cart*/
 delete from Sale_item where sale_item.sale=? && sale_item.item=?;
+
+/*
+    Delete record
+*/
+delete from record where record.Record_id=12;
+delete from item where item_id=22;
+
+select i.item_id from record
+join public.item i on i.item_id = record.item_id
+where record_id=11;
+
+
+select record_id from record
+join public.item i on i.item_id = record.item_id
+where i.item_id=18;
+
+select instrument_id from instrument
+join public.item i on i.item_id = instrument.item_id
+where i.item_id=2;
+
+delete from instrument_istrument_type where instrument_id=1;
+delete from instrument where instrument_id=1;
+delete from sale_item where item=1;
+delete from item where item_id=1;
