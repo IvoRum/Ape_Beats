@@ -14,6 +14,7 @@ public class DeleteRepository {
     public void deleteRecord(int itemId) throws Exception {
 
         String sql= "delete from record where record.Record_id=?;" +
+                "delete from sale_item where item=?;" +
                 "delete from item where item_id=?;";
 
         Connection connection = DataSourceUtils.getConnection(dataSource);
@@ -21,6 +22,7 @@ public class DeleteRepository {
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, recordId);
             statement.setInt(2, itemId);
+            statement.setInt(3, itemId);
 
             statement.execute();
         }
@@ -28,16 +30,18 @@ public class DeleteRepository {
 
     public void deleteInstrument(int itemId) throws Exception {
 
-        String sql= "delete from instrument_istrument_type where instrument_id=1;" +
-                "delete from instrument where instrument_id=1;" +
-                "delete from sale_item where item=1;" +
-                "delete from item where item_id=1;";
+        String sql= "delete from instrument_istrument_type where instrument_id=?;" +
+                "delete from instrument where instrument_id=?;" +
+                "delete from sale_item where item=?;" +
+                "delete from item where item_id=?;";
 
         Connection connection = DataSourceUtils.getConnection(dataSource);
         int instrumentId=getInstrumentId(connection,itemId);
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, instrumentId);
-            statement.setInt(2, itemId);
+            statement.setInt(2, instrumentId);
+            statement.setInt(3, itemId);
+            statement.setInt(4, itemId);
 
             statement.execute();
         }

@@ -138,6 +138,27 @@
         <button mat-raised-button color="primary" type="submit">Update</button
         ><br />
       </form>
+
+      <form
+        [formGroup]="forminstumentDel"
+        (ngSubmit)="onSubmitDeleteIstrument()"
+      >
+        Delete instrument<br />
+        <mat-form-field>
+          <mat-label>Instrument</mat-label>
+          <mat-select formControlName="id">
+            <div
+              *ngFor="let instrument of this.staticInformation.instrumentNames"
+            >
+              <mat-option value="{{ instrument.id }}">{{
+                instrument.name
+              }}</mat-option>
+            </div>
+          </mat-select>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Delete</button
+        ><br />
+      </form>
     </div>
   </div>
   <div

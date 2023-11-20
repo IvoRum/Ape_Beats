@@ -2,6 +2,7 @@ package com.example.apemain.service;
 
 import com.example.apemain.domains.Instrument;
 import com.example.apemain.repository.ApeRepository;
+import com.example.apemain.repository.DeleteRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,7 @@ public
 class InstrumentService {
     private final ApeRepository apeRepository;
     private final ItemService itemService;
+    private final DeleteRepository deleteRepository;
 
     public
     List<Instrument> getAllInstruments() {
@@ -61,6 +63,14 @@ class InstrumentService {
         } catch (Exception e) {
             e.printStackTrace();
             return null;
+        }
+    }
+
+    public void deleteInstrument(int itemId) {
+        try {
+            deleteRepository.deleteInstrument(itemId);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 }

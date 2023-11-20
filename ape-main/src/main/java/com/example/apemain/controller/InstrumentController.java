@@ -57,4 +57,10 @@ public class InstrumentController {
         instrumentService.updateInstrumentName(updateItemName.id(),updateItemName.name());
         return ResponseEntity.ok("da");
     }
+
+    @DeleteMapping("/{itemId}")
+    public ResponseEntity<String> deleteInstrument(@PathVariable int itemId){
+        instrumentService.deleteInstrument(itemId);
+        return ResponseEntity.ok("da");
+    }
 }
