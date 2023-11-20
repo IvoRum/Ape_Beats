@@ -89,6 +89,10 @@ export class DataServiceService {
     return this.http.put('http://localhost:8080/api/v1/record', data);
   }
 
+  delRecord(data: any) {
+    return this.http.delete('http://localhost:8080/api/v1/record/' + data.id);
+  }
+
   newArtist(data: any) {
     return this.http.put('http://localhost:8080/api/v1/artist', data);
   }

@@ -271,6 +271,19 @@
 
         <button mat-raised-button color="primary" type="submit">Update</button>
       </form>
+
+      <form [formGroup]="formrecordDel" (ngSubmit)="onSubmitDeleteRecord()">
+        Delete Record<br />
+        <mat-form-field>
+          <mat-label>Record</mat-label>
+          <mat-select formControlName="id">
+            <div *ngFor="let record of this.staticInformation.recordNames">
+              <mat-option value="{{ record.id }}">{{ record.name }}</mat-option>
+            </div>
+          </mat-select>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Delete</button>
+      </form>
     </div>
   </div>
   <div

@@ -34,4 +34,10 @@ public class RecordController {
         recordService.updateInstrumentName(updateItemName.id(),updateItemName.name());
         return ResponseEntity.ok("da");
     }
+
+    @DeleteMapping("/{recordId}")
+    public ResponseEntity<String> deleteRecord(@PathVariable int recordId){
+        recordService.deleteRecord(recordId);
+        return ResponseEntity.ok("da");
+    }
 }

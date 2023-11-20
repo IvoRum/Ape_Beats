@@ -46,6 +46,7 @@ export class MainComponent implements OnInit {
   formCreateRecord: FormGroup;
   formCreateArtist: FormGroup;
   purchesForm: FormGroup;
+  formrecordDel: FormGroup;
 
   constructor(
     private dataService: DataServiceService,
@@ -90,6 +91,9 @@ export class MainComponent implements OnInit {
     });
     this.purchesForm = this.formBuilder.group({
       userId: ['userId'],
+    });
+    this.formrecordDel = this.formBuilder.group({
+      id: ['id of the Record'],
     });
   }
 
@@ -185,6 +189,18 @@ export class MainComponent implements OnInit {
             data: data,
           });
         });
+    }
+  }
+
+  onSubmitDeleteRecord() {
+    if (this.formrecordDel.valid) {
+      // Make the PUT request to update the data using the values in this.form.value
+      this.dataService
+        .delRecord(this.formrecordDel.value)
+        .subscribe((response) => {
+          // Handle the response
+        });
+      //window.location.reload();
     }
   }
 }

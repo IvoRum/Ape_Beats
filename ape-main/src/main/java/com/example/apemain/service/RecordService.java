@@ -2,9 +2,9 @@ package com.example.apemain.service;
 
 import com.example.apemain.domains.Record;
 import com.example.apemain.repository.ApeRepository;
+import com.example.apemain.repository.DeleteRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
@@ -16,6 +16,7 @@ import java.util.List;
 public class RecordService {
     private final ApeRepository repository;
     private final ItemService itemService;
+    private final DeleteRepository deleteRepository;
 
     public List<Record> getAllRecords(){
         try {
@@ -36,5 +37,13 @@ public class RecordService {
 
     public void updateInstrumentName(int id, String name) {
         itemService.updateItemName(id,name);
+    }
+
+    public void deleteRecord(int recordId) {
+        try {
+            deleteRepository.deleteRecord(recordId);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
