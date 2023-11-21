@@ -325,7 +325,6 @@ public class ApeRepository {
 
                 instrumentList.add(new Instrument(id,type, name, company, stock, price, date, genre, des));
             }
-            connection.close();
             return List.copyOf(instrumentList);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -363,7 +362,6 @@ public class ApeRepository {
 
                 instrumentList.add(new Instrument(id,type, name, company, stock, price, date, genre, des));
             }
-            connection.close();
             return List.copyOf(instrumentList);
         } catch (SQLException e) {
             e.printStackTrace();
