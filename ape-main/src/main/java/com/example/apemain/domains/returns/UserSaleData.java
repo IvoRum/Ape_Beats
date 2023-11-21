@@ -1,6 +1,9 @@
 package com.example.apemain.domains.returns;
 
-import java.sql.Date;
+import com.example.apemain.domains.ItemData;
 
-public record UserSaleData(Integer number, Integer amount, Date time_stamp,boolean fulfill) {
+import java.sql.Date;
+import java.util.List;
+
+public record UserSaleData(Integer number, Integer amount, Date time_stamp, boolean fulfill, List<ItemData> utems ) {
 }

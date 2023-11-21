@@ -213,7 +213,6 @@ delete from sale_item where item=1;
 delete from item where item_id=1;
 
 /* DOTO
-    1. Fix bass and gitar sorting
     2. See all users items in historry
     3. Make video demo
     4. Write documentation 

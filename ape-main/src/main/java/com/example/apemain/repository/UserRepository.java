@@ -1,5 +1,6 @@
 package com.example.apemain.repository;
 
+import com.example.apemain.domains.ItemData;
 import com.example.apemain.domains.UserProfileDate;
 import com.example.apemain.domains.returns.UserData;
 import com.example.apemain.domains.returns.UserSaleData;
@@ -88,8 +89,34 @@ public class UserRepository {
                 int amount=resultSet.getInt("amount");
                 Date phone=resultSet.getDate("time_stamp");
                 boolean firstName=resultSet.getBoolean("fulfill");
+                List<ItemData> items= getItems(number,connection);
 
-                result.add(new UserSaleData(number,amount,phone,firstName));
+                result.add(new UserSaleData(number,amount,phone,firstName,items));
+            }
+            return result;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private List<ItemData> getItems(int number,Connection connection) {
+
+        String sql= "select i.item_id,i.name,i.discrimination,i.price " +
+                "from sale_item join public.item i on i.item_id = sale_item.item " +
+                "where sale=?;";
+
+        try(PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, number);
+            List<ItemData> result= new ArrayList<>();
+
+            ResultSet resultSet= statement.executeQuery();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("item_id");
+                int price=resultSet.getInt("price");
+                String discrimination=resultSet.getString("discrimination");
+                String name=resultSet.getString("name");
+                result.add(new ItemData(id,name,price,discrimination));
             }
             return result;
         }catch (Exception e){

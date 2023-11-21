@@ -16,27 +16,14 @@
     <div class="sales" fxFlex="80%">
       <h1>User purches history</h1>
       <div>
-        <table mat-table [dataSource]="userSales" class="mat-elevation-z8">
-          <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
-          <ng-container matColumnDef="number">
-            <th mat-header-cell *matHeaderCellDef>number</th>
-            <td mat-cell *matCellDef="let element">{{ element.number }}</td>
-          </ng-container>
-          <!-- Position Column -->
-          <ng-container matColumnDef="amount">
-            <th mat-header-cell *matHeaderCellDef>amount</th>
-            <td mat-cell *matCellDef="let element">{{ element.amount }}</td>
-          </ng-container>
-
-          <ng-container matColumnDef="fulfilled">
-            <th mat-header-cell *matHeaderCellDef>fulfilled</th>
-            <td mat-cell *matCellDef="let element">{{ element.fulfilled }}</td>
-          </ng-container>
-
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-        </table>
+        <dl>
+          <div salesWhiItems *ngFor="let sale of userSales">
+            <dt>Number: {{ sale.number }} Amount: {{ sale.amount }}</dt>
+            <div *ngFor="let item of sale.utems">
+              <dd>{{ item.id }},{{ item.name }},{{ item.price }}</dd>
+            </div>
+          </div>
+        </dl>
       </div>
     </div>
     <div>
