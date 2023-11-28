@@ -17,3 +17,12 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
+
+<dl>
+  <div salesWhiItems *ngFor="let sale of userSales">
+    <dt>Number: {{ sale.number }} Amount: {{ sale.amount }}</dt>
+    <div *ngFor="let item of sale.utems">
+      <dd>{{ item.id }},{{ item.name }},{{ item.price }}</dd>
+    </div>
+  </div>
+</dl>
