@@ -3,10 +3,5 @@ spring:
     jwtSecret: s3cr37
     jwtExpirationMs: 36000000
   datasource:
-    url: jdbc:postgresql://ep-lively-queen-99751851.eu-central-1.aws.neon.tech/Ape_beats?user=IvoRum&password=RXvnYfB9m1Uz
-    #username: IvoRum
-    #password: RXvnYfB9m1Uz
-    #url: jdbc:postgresql://localhost:5432/ape_beats
-    #username: postgres
-    #password: ar4ebar4e
+    url: GETFROM NEON
     driver-class-name: org.postgresql.Driver
